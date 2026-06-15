@@ -195,6 +195,19 @@ footer a{color:var(--accent3);text-decoration:none;}
 #btt.show{opacity:1;transform:translateY(0);}
 #btt:hover{box-shadow:0 8px 26px rgba(37,99,235,.55);}
 
+/* RH POPUP */
+.btn-3cx{display:block;text-align:center;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:13px 20px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;transition:.2s;box-shadow:0 4px 18px rgba(37,99,235,.4);margin-top:.3rem;}
+.btn-3cx:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(37,99,235,.55);}
+.rh-team{list-style:none;padding:0;margin:.2rem 0;}
+.rh-team li{display:flex;align-items:center;gap:.8rem;padding:.75rem 1rem;background:rgba(37,99,235,.07);border:1px solid rgba(37,99,235,.15);border-radius:10px;margin-bottom:.5rem;}
+.rh-team li:last-child{margin-bottom:0;}
+.rh-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.rh-info{flex:1;}
+.rh-name{font-size:.88rem;font-weight:700;color:#fff;}
+.rh-ramal{font-size:.77rem;color:var(--accent3);margin-top:1px;}
+.rh-link-btn{background:none;border:none;color:var(--accent3);cursor:pointer;font-size:inherit;font-family:inherit;padding:0;text-decoration:underline;text-underline-offset:2px;}
+.rh-link-btn:hover{color:#93c5fd;}
+
 /* MOBILE */
 @media(max-width:768px){
   .nav-links{display:none;}
@@ -223,7 +236,7 @@ footer a{color:var(--accent3);text-decoration:none;}
     <li><a href="#edu-anchor">Educação</a></li>
     <li><a href="#cta">Dúvidas</a></li>
   </ul>
-  <a href="mailto:frademarh12@fradema.com.br" class="nav-btn">Falar com RH</a>
+  <button class="nav-btn" data-modal="mrh">Falar com RH</button>
 </nav>
 
 <!-- HERO -->
@@ -235,7 +248,7 @@ footer a{color:var(--accent3);text-decoration:none;}
     <p class="hsub">Tudo o que você precisa saber sobre os benefícios disponíveis. Explore, compare e aproveite ao máximo cada vantagem.</p>
     <div class="hbtns">
       <a href="#beneficios" class="btn-main">Explorar benefícios</a>
-      <a href="mailto:frademarh12@fradema.com.br" class="btn-ghost">Falar com o RH</a>
+      <button class="btn-ghost" data-modal="mrh">Falar com o RH</button>
     </div>
     <div class="hstats">
       <div class="hstat"><div class="hstat-n"><span class="ctr" data-t="11">0</span></div><div class="hstat-l">Benefícios ativos</div></div>
@@ -476,11 +489,11 @@ footer a{color:var(--accent3);text-decoration:none;}
     <div class="sec-tag" style="margin-bottom:.8rem">Precisa de ajuda?</div>
     <h2 class="cta-title">Ficou com dúvidas?</h2>
     <p class="cta-sub">Este manual apresenta os pontos principais de cada benefício. Para situações específicas, inclusões, alterações ou qualquer esclarecimento, fale com o RH.</p>
-    <a href="mailto:frademarh12@fradema.com.br" class="cta-mail">✉️ frademarh12@fradema.com.br</a>
+    <button class="cta-mail" data-modal="mrh">✉️ frademarh12@fradema.com.br</button>
   </div>
 </section>
 
-<footer><p>Manual de Benefícios do Colaborador · Atualizado em 2026 · <a href="mailto:frademarh12@fradema.com.br">Contato RH</a></p></footer>
+<footer><p>Manual de Benefícios do Colaborador · Atualizado em 2026 · <button class="rh-link-btn" data-modal="mrh">Contato RH</button></p></footer>
 
 <button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
 
@@ -579,7 +592,7 @@ footer a{color:var(--accent3);text-decoration:none;}
       </div>
       <div class="mb-block">
         <div class="mb-label">Como acessar</div>
-        <p class="mb-text">Baixe o aplicativo <strong>Mawdy</strong> e utilize seu login corporativo. Em caso de dúvidas sobre o acesso, entre em contato com o RH.</p>
+        <p class="mb-text">Baixe o aplicativo <strong>Mawdy</strong> e utilize seu login corporativo. Em caso de dúvidas sobre o acesso, <button class="rh-link-btn" data-modal="mrh">fale com o RH</button>.</p>
       </div>
       <div class="alert">⚠️ Este benefício é exclusivo para o colaborador. Não cobre dependentes.</div>
     </div>
@@ -633,7 +646,7 @@ footer a{color:var(--accent3);text-decoration:none;}
       </div>
       <div class="mb-block">
         <div class="mb-label">Como acessar</div>
-        <p class="mb-text">Para obter o link e código de acesso com desconto, entre em contato com o RH: <a href="mailto:frademarh12@fradema.com.br">frademarh12@fradema.com.br</a></p>
+        <p class="mb-text">Para obter o link e código de acesso com desconto, <button class="rh-link-btn" data-modal="mrh">entre em contato com o RH</button>.</p>
       </div>
       <div class="alert">⚠️ Benefício exclusivo para o colaborador. Não extensivo a dependentes.</div>
     </div>
@@ -739,7 +752,7 @@ footer a{color:var(--accent3);text-decoration:none;}
       </div>
       <div class="mb-block">
         <div class="mb-label">Como contratar</div>
-        <p class="mb-text">Entre em contato com o RH para receber o link e o código de acesso com desconto: <a href="mailto:frademarh12@fradema.com.br">frademarh12@fradema.com.br</a></p>
+        <p class="mb-text">Para receber o link e o código de acesso com desconto, <button class="rh-link-btn" data-modal="mrh">entre em contato com o RH</button>.</p>
       </div>
     </div>
   </div>
@@ -887,6 +900,48 @@ footer a{color:var(--accent3);text-decoration:none;}
   </div>
 </div>
 
+<!-- MODAL RH: CONTATO -->
+<div class="modal" id="mrh">
+  <div class="modal-bg"></div>
+  <div class="modal-box" style="max-width:460px">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(37,99,235,.15)">📞</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#60a5fa">Recursos Humanos</div>
+        <div class="mh-title">Falar com o RH</div>
+        <div class="mh-partner">Atendimento via ramal ou 3CX</div>
+      </div>
+      <button class="modal-close" data-close="mrh">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">Equipe de RH</div>
+        <ul class="rh-team">
+          <li>
+            <div class="rh-avatar">👩</div>
+            <div class="rh-info">
+              <div class="rh-name">Dayanne Carvalho</div>
+              <div class="rh-ramal">Ramal 2112</div>
+            </div>
+          </li>
+          <li>
+            <div class="rh-avatar">👩</div>
+            <div class="rh-info">
+              <div class="rh-name">Joseane Freires</div>
+              <div class="rh-ramal">Ramal 2128</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Sistema de comunicação</div>
+        <p class="mb-text" style="margin-bottom:.9rem">Acesse o 3CX, busque pelo nome ou ramal e entre em contato diretamente.</p>
+        <a href="https://fradema.my3cx.com.br/#/people" target="_blank" class="btn-3cx">📲 Clique aqui para entrar no 3CX</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════ SCRIPTS ══════════════ -->
 <script>
 // PARTICLES
@@ -938,9 +993,13 @@ function closeModal(id){
   document.body.style.overflow='';
 }
 
-// abrir via botão nos cards
+// abrir via botão nos cards e links internos
 document.querySelectorAll('[data-modal]').forEach(function(btn){
   btn.addEventListener('click',function(){
+    // fecha qualquer modal aberto antes de abrir outro
+    document.querySelectorAll('.modal').forEach(function(m){
+      if(m.style.display==='flex') closeModal(m.id);
+    });
     openModal(this.dataset.modal);
   });
 });
