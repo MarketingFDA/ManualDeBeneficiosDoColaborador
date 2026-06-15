@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manual de Benefícios do Colaborador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#060f24;
@@ -26,6 +29,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;}
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar{width:5px;}
@@ -143,11 +147,11 @@ section{position:relative;z-index:1;}
 .univ-table .pct{font-weight:800;color:var(--accent3);}
 
 /* ── HIGHLIGHT STRIP ── */
-.highlight-strip{background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(96,165,250,.06));border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
+.highlight-strip{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;}
 .highlight-item{display:flex;align-items:center;gap:1rem;}
-.h-icon{font-size:1.8rem;}
-.h-label{font-size:.78rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;}
-.h-val{font-size:1.1rem;font-weight:800;color:#fff;}
+.h-icon{font-size:1.8rem;flex-shrink:0;}
+.h-label{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:2px;}
+.h-val{font-size:1rem;font-weight:700;color:#e2e8f0;}
 
 /* ── CTA SECTION ── */
 #cta{background:linear-gradient(135deg,var(--bg3),var(--bg2));border-top:1px solid var(--border);}
@@ -221,7 +225,7 @@ footer a{color:var(--accent3);text-decoration:none;}
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge"><div class="live"></div> Atualizado · 2025</div>
+    <div class="hero-badge"><div class="live"></div> Atualizado · 2026</div>
     <h1 class="hero-title">Seus <span>Benefícios</span><br>em um só lugar</h1>
     <p class="hero-sub">Tudo o que você precisa saber sobre os benefícios disponíveis para você. Explore, compare e aproveite ao máximo.</p>
     <div class="hero-btns">
@@ -350,8 +354,8 @@ footer a{color:var(--accent3);text-decoration:none;}
           <div class="detail-block">
             <div class="detail-label">Benefícios extras incluídos</div>
             <ul class="detail-ul">
-              <li><strong>Mastercard Surpreenda</strong> — programa de pontos e benefícios Mastercard</li>
-              <li><strong>Swile Shop</strong> — descontos em parceiros exclusivos da Swile</li>
+              <li><strong>Mastercard Surpreenda</strong>: programa de pontos e benefícios Mastercard</li>
+              <li><strong>Swile Shop</strong>: descontos em parceiros exclusivos da Swile</li>
             </ul>
           </div>
         </div>
@@ -384,7 +388,7 @@ footer a{color:var(--accent3);text-decoration:none;}
             <div class="detail-label">Plataforma</div>
             <div class="detail-text">O <strong>Mawdy</strong> oferece consultas médicas online a qualquer hora do dia ou da noite, incluindo fins de semana e feriados.</div>
           </div>
-          <div class="alert-box">⚠️ Este benefício é exclusivo para o colaborador — não cobre dependentes.</div>
+          <div class="alert-box">⚠️ Este benefício é exclusivo para o colaborador. Não cobre dependentes.</div>
         </div>
       </div>
     </div>
@@ -415,7 +419,7 @@ footer a{color:var(--accent3);text-decoration:none;}
             <div class="detail-label">Como usar</div>
             <div class="detail-text">O desconto é acessado pelo app <strong>Mawdy</strong>. Válido exclusivamente nas redes <strong>Drogasil</strong> e <strong>Droga Raia</strong>.</div>
           </div>
-          <div class="alert-box">⚠️ Benefício exclusivo para o colaborador — não extensivo a dependentes.</div>
+          <div class="alert-box">⚠️ Benefício exclusivo para o colaborador. Não extensivo a dependentes.</div>
         </div>
       </div>
     </div>
@@ -446,7 +450,7 @@ footer a{color:var(--accent3);text-decoration:none;}
             <div class="detail-label">O que é a Virtude</div>
             <div class="detail-text">Plataforma segura de saúde mental que oferece <strong>40% de desconto</strong> em sessões de psicoterapia com profissionais certificados.</div>
           </div>
-          <div class="alert-box">⚠️ Benefício exclusivo para o colaborador — não extensivo a dependentes.</div>
+          <div class="alert-box">⚠️ Benefício exclusivo para o colaborador. Não extensivo a dependentes.</div>
         </div>
       </div>
     </div>
@@ -527,9 +531,9 @@ footer a{color:var(--accent3);text-decoration:none;}
           <div class="detail-block">
             <div class="detail-label">Apps parceiros incluídos</div>
             <ul class="detail-ul">
-              <li><strong>Total Mind</strong> — sessões de psicologia online + 400 áudios de meditação</li>
-              <li><strong>Total Nutri</strong> — plano alimentar personalizado</li>
-              <li><strong>Conexa</strong> — telemedicina online</li>
+              <li><strong>Total Mind</strong>: sessões de psicologia online com mais de 400 áudios de meditação</li>
+              <li><strong>Total Nutri</strong>: plano alimentar personalizado</li>
+              <li><strong>Conexa</strong>: telemedicina online</li>
             </ul>
             <div class="info-box" style="margin-top:.8rem;">💡 Acesso aos apps varia conforme o plano escolhido.</div>
           </div>
@@ -688,11 +692,11 @@ footer a{color:var(--accent3);text-decoration:none;}
         <div class="card-detail-inner">
           <table class="univ-table">
             <tr><th>Instituição</th><th>Desconto</th><th>Abrangência</th></tr>
-            <tr><td>UNIP</td><td class="pct">10%</td><td>EAD, Flex e Presencial — Graduação (exceto Medicina, Vet. e Odonto) e Pós-Graduação Lato Sensu</td></tr>
-            <tr><td>FGV</td><td class="pct">10% cursos<br>20% livros</td><td>MBAs, pós-graduação e aperfeiçoamento — unidades RJ, SP, Campinas, BH e DF. Livros online: 20% off</td></tr>
-            <tr><td>PUC PR</td><td class="pct">10 – 25%</td><td>Desconto comercial conforme regras do convênio — consultar RH para obter regulamento</td></tr>
-            <tr><td>Estácio de Sá</td><td class="pct">Por campanha</td><td>Desconto varia conforme campanha vigente do mês · Contato: Evelyn (21) 97915-0122 via WhatsApp</td></tr>
-            <tr><td>UVA — Veiga de Almeida</td><td class="pct">10%*</td><td>*Pode variar conforme mês vigente</td></tr>
+            <tr><td>UNIP</td><td class="pct">10%</td><td>EAD, Flex e Presencial. Graduação (exceto Medicina, Vet. e Odonto) e Pós-Graduação Lato Sensu</td></tr>
+            <tr><td>FGV</td><td class="pct">10% cursos<br>20% livros</td><td>MBAs, pós-graduação e aperfeiçoamento nas unidades RJ, SP, Campinas, BH e DF. Livros online com 20% off</td></tr>
+            <tr><td>PUC PR</td><td class="pct">10 a 25%</td><td>Desconto comercial conforme regras do convênio. Consultar o RH para obter o regulamento</td></tr>
+            <tr><td>Estácio de Sá</td><td class="pct">Por campanha</td><td>Desconto varia conforme a campanha vigente do mês. Contato: Evelyn (21) 97915-0122 via WhatsApp</td></tr>
+            <tr><td>UVA (Veiga de Almeida)</td><td class="pct">10%*</td><td>*Pode variar conforme o mês vigente</td></tr>
           </table>
           <div class="alert-box" style="margin-top:1rem;">⚠️ Todos os descontos se estendem a dependentes do colaborador.</div>
           <div class="detail-block" style="margin-top:1rem;">
@@ -721,7 +725,7 @@ footer a{color:var(--accent3);text-decoration:none;}
 <section id="cta">
   <div class="cta-inner">
     <div class="section-tag" style="margin-bottom:1rem;">Precisa de ajuda?</div>
-    <h2 class="cta-title">Ficou com dúvida?</h2>
+    <h2 class="cta-title">Ficou com dúvidas?</h2>
     <p class="cta-sub">Este manual cobre os pontos principais de cada benefício. Para situações específicas, alterações, inclusões ou qualquer esclarecimento adicional, fale diretamente com o RH.</p>
     <a href="mailto:frademarh12@fradema.com.br" class="cta-email">✉️ frademarh12@fradema.com.br</a>
     <br>
@@ -731,7 +735,7 @@ footer a{color:var(--accent3);text-decoration:none;}
 
 <!-- FOOTER -->
 <footer>
-  <p>Manual de Benefícios do Colaborador · Atualizado em 2025 · <a href="mailto:frademarh12@fradema.com.br">Contato RH</a></p>
+  <p>Manual de Benefícios do Colaborador · Atualizado em 2026 · <a href="mailto:frademarh12@fradema.com.br">Contato RH</a></p>
 </footer>
 
 <!-- Back to top -->
@@ -760,20 +764,20 @@ window.addEventListener('scroll',()=>{
 
 // ── COUNTER ANIMATION
 function animateCounter(el){
-  const target=+el.dataset.target;
-  const dur=1400;
-  const start=performance.now();
-  (function step(now){
-    const p=Math.min((now-start)/dur,1);
-    el.textContent=Math.floor(p*target);
-    if(p<1)requestAnimationFrame(step);
-    else el.textContent=target;
-  })(start);
+  const target=parseInt(el.dataset.target,10);
+  let current=0;
+  const steps=60;
+  const increment=target/steps;
+  const timer=setInterval(()=>{
+    current+=increment;
+    if(current>=target){el.textContent=target;clearInterval(timer);}
+    else{el.textContent=Math.floor(current);}
+  },1000/steps);
 }
 const counters=document.querySelectorAll('.counter');
 const cObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);cObs.unobserve(e.target);}});
-},{threshold:.5});
+},{threshold:.3});
 counters.forEach(c=>cObs.observe(c));
 
 // ── SCROLL REVEAL
@@ -784,17 +788,15 @@ document.querySelectorAll('.reveal').forEach(el=>rObs.observe(el));
 
 // ── CARD EXPAND
 function toggleCard(btn){
-  const detail=btn.nextElementSibling;
+  const card=btn.closest('.benefit-card');
+  const detail=card.querySelector('.card-detail');
   const isOpen=detail.classList.contains('open');
-  // fecha todos
-  document.querySelectorAll('.card-detail.open').forEach(d=>{
-    d.classList.remove('open');
-    d.previousElementSibling.classList.remove('open');
-  });
+  document.querySelectorAll('.card-detail.open').forEach(d=>{d.classList.remove('open');});
+  document.querySelectorAll('.card-expand-btn.open').forEach(b=>{b.classList.remove('open');});
   if(!isOpen){
     detail.classList.add('open');
     btn.classList.add('open');
-    setTimeout(()=>btn.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
+    setTimeout(()=>{card.scrollIntoView({behavior:'smooth',block:'nearest'});},150);
   }
 }
 
