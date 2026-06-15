@@ -9,11 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#060f24;
-  --bg2:#0b1a38;
+  --bg:#06101f;
+  --bg2:#0b1a35;
   --bg3:#0f2147;
   --card:#0d1d3e;
-  --card2:#122350;
+  --card2:#132250;
   --accent:#2563eb;
   --accent2:#3b82f6;
   --accent3:#60a5fa;
@@ -22,700 +22,450 @@
   --text:#e2e8f0;
   --text2:#94a3b8;
   --text3:#64748b;
-  --border:rgba(37,99,235,.18);
-  --glow:rgba(37,99,235,.35);
-  --radius:16px;
-  --radius-sm:10px;
+  --border:rgba(37,99,235,.2);
+  --glow:rgba(37,99,235,.4);
+  --r:16px;
+  --rs:10px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;}
-
-/* ── SCROLLBAR ── */
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px;}
 
-/* ── PROGRESS BAR ── */
-#progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#2563eb,#60a5fa,#f59e0b);z-index:9999;transition:width .1s;}
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#2563eb,#60a5fa,#f59e0b);z-index:9999;}
 
-/* ── PARTICLES BG ── */
-#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.pt{position:absolute;border-radius:50%;animation:float linear infinite;}
-@keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.4}90%{opacity:.1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+/* PARTICLES */
+#pts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.pt{position:absolute;border-radius:50%;animation:floatup linear infinite;}
+@keyframes floatup{0%{transform:translateY(110vh);opacity:0}10%{opacity:.35}90%{opacity:.08}100%{transform:translateY(-5vh);opacity:0}}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,15,36,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;transition:all .3s;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(6,16,31,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;}
 .nav-logo{display:flex;align-items:center;gap:10px;}
-.nav-logo span{font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,#60a5fa,#2563eb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.nav-logo .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.7}}
+.logo-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.logo-text{font-size:1rem;font-weight:800;background:linear-gradient(135deg,#93c5fd,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .nav-links{display:flex;gap:1.5rem;list-style:none;}
-.nav-links a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;transition:.2s;padding:4px 0;border-bottom:2px solid transparent;}
-.nav-links a:hover,.nav-links a.active{color:var(--accent3);border-bottom-color:var(--accent);}
-.nav-cta{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:700;cursor:pointer;transition:.2s;text-decoration:none;}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px var(--glow);}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:.2s;padding:4px 0;border-bottom:2px solid transparent;}
+.nav-links a:hover{color:var(--accent3);border-bottom-color:var(--accent);}
+.nav-btn{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:700;text-decoration:none;transition:.2s;border:none;cursor:pointer;}
+.nav-btn:hover{transform:translateY(-1px);box-shadow:0 4px 18px var(--glow);}
 
-/* ── HERO ── */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 20% 50%,rgba(37,99,235,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(96,165,250,.1) 0%,transparent 50%),var(--bg);}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.05) 1px,transparent 1px);background-size:60px 60px;}
-.hero-content{text-align:center;z-index:1;padding:2rem;max-width:860px;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.3);color:var(--accent3);padding:6px 18px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:2rem;animation:fadeDown .8s ease both;}
-.hero-badge .live{width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse 1.5s infinite;}
-h1.hero-title{font-size:clamp(2.2rem,5vw,4rem);font-weight:900;line-height:1.1;color:#fff;margin-bottom:1.2rem;animation:fadeUp .9s ease .1s both;}
-h1.hero-title span{background:linear-gradient(135deg,#60a5fa,#2563eb,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-sub{font-size:1.1rem;color:var(--text2);max-width:560px;margin:0 auto 2.5rem;line-height:1.7;animation:fadeUp .9s ease .2s both;}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .9s ease .3s both;}
-.btn-primary{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:14px 32px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;border:none;text-decoration:none;transition:.2s;box-shadow:0 8px 30px rgba(37,99,235,.4);}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,99,235,.5);}
-.btn-outline{background:transparent;color:var(--accent3);padding:14px 32px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;border:1px solid var(--border);text-decoration:none;transition:.2s;}
-.btn-outline:hover{background:rgba(37,99,235,.1);border-color:var(--accent);}
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 18% 55%,rgba(37,99,235,.14),transparent 62%),radial-gradient(ellipse at 82% 22%,rgba(96,165,250,.09),transparent 55%),var(--bg);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:58px 58px;}
+.hero-inner{text-align:center;z-index:1;padding:2rem;max-width:820px;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.13);border:1px solid rgba(37,99,235,.3);color:var(--accent3);padding:6px 18px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:1.8rem;animation:fadeD .7s ease both;}
+.live{width:7px;height:7px;background:#10b981;border-radius:50%;animation:blink 1.5s infinite;}
+@keyframes fadeD{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+h1.htitle{font-size:clamp(2rem,5vw,3.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.1rem;animation:fadeU .8s .1s ease both;}
+h1.htitle em{font-style:normal;background:linear-gradient(135deg,#93c5fd,#3b82f6,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hsub{font-size:1rem;color:var(--text2);max-width:520px;margin:0 auto 2.2rem;line-height:1.75;font-weight:400;animation:fadeU .8s .2s ease both;}
+.hbtns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeU .8s .3s ease both;}
+.btn-main{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:13px 30px;border-radius:50px;font-weight:700;font-size:.9rem;text-decoration:none;border:none;cursor:pointer;transition:.2s;box-shadow:0 8px 28px rgba(37,99,235,.4);}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,99,235,.5);}
+.btn-ghost{background:transparent;color:var(--accent3);padding:13px 30px;border-radius:50px;font-weight:700;font-size:.9rem;border:1px solid var(--border);text-decoration:none;transition:.2s;cursor:pointer;}
+.btn-ghost:hover{background:rgba(37,99,235,.09);border-color:var(--accent);}
 
-/* ── COUNTERS ── */
-.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;animation:fadeUp .9s ease .5s both;}
-.stat{text-align:center;}
-.stat-num{font-size:2.2rem;font-weight:900;color:#fff;line-height:1;}
-.stat-num span{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.stat-label{font-size:.8rem;color:var(--text3);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
-.stat-divider{width:1px;background:var(--border);}
+/* HERO STATS */
+.hstats{display:flex;gap:3rem;justify-content:center;margin-top:3.5rem;animation:fadeU .8s .5s ease both;}
+.hstat{text-align:center;}
+.hstat-n{font-size:2.1rem;font-weight:900;color:#fff;line-height:1;}
+.hstat-n span{background:linear-gradient(135deg,#93c5fd,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hstat-l{font-size:.73rem;color:var(--text3);margin-top:3px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;}
+.hdiv{width:1px;background:var(--border);}
 
-/* ── SEARCH ── */
-#search-section{position:relative;z-index:1;padding:3rem 2rem 0;max-width:700px;margin:0 auto;}
-.search-wrap{position:relative;}
-#search-input{width:100%;padding:16px 24px 16px 56px;background:var(--card);border:1px solid var(--border);border-radius:50px;color:var(--text);font-size:1rem;outline:none;transition:.3s;}
-#search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow);}
-#search-input::placeholder{color:var(--text3);}
-.search-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.2rem;}
+/* SEARCH */
+#search-wrap{position:relative;z-index:1;max-width:660px;margin:0 auto;padding:2.5rem 2rem 0;}
+.srch-box{position:relative;}
+#srch{width:100%;padding:15px 22px 15px 52px;background:var(--card);border:1px solid var(--border);border-radius:50px;color:var(--text);font-family:'Poppins',sans-serif;font-size:.95rem;outline:none;transition:.25s;}
+#srch:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.25);}
+#srch::placeholder{color:var(--text3);}
+.srch-ico{position:absolute;left:19px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.1rem;pointer-events:none;}
 
-/* ── SECTION COMMON ── */
+/* SECTION */
 section{position:relative;z-index:1;}
 .section-wrap{max-width:1200px;margin:0 auto;padding:5rem 2rem;}
-.section-header{text-align:center;margin-bottom:3.5rem;}
-.section-tag{display:inline-block;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);color:var(--accent3);padding:4px 14px;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.8rem;}
-.section-title{font-size:2rem;font-weight:800;color:#fff;margin-bottom:.6rem;}
-.section-sub{color:var(--text2);font-size:1rem;max-width:540px;margin:0 auto;line-height:1.6;}
+.sec-tag{display:inline-block;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.22);color:var(--accent3);padding:3px 14px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.7rem;}
+.sec-title{font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:.5rem;}
+.sec-sub{color:var(--text2);font-size:.95rem;max-width:520px;margin:0 auto;line-height:1.65;}
+.sec-head{text-align:center;margin-bottom:3rem;}
 
-/* ── BENEFIT CARDS ── */
-.benefits-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;}
-.benefit-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;cursor:pointer;}
-.benefit-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,99,235,.06),transparent);opacity:0;transition:.3s;}
-.benefit-card:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.4);box-shadow:0 20px 60px rgba(0,0,0,.3),0 0 0 1px rgba(37,99,235,.2);}
-.benefit-card:hover::before{opacity:1;}
-.card-header{padding:1.5rem 1.5rem .8rem;display:flex;align-items:flex-start;gap:1rem;}
-.card-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
-.card-meta{flex:1;}
-.card-tag{font-size:.7rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px;}
-.card-title{font-size:1.1rem;font-weight:800;color:#fff;line-height:1.2;}
-.card-partner{font-size:.78rem;color:var(--text3);margin-top:2px;}
-.card-body{padding:0 1.5rem 1.5rem;}
-.card-summary{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:1rem;}
-.card-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;}
-.badge{padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:700;}
-.badge-blue{background:rgba(37,99,235,.15);color:#93c5fd;border:1px solid rgba(37,99,235,.2);}
-.badge-green{background:rgba(16,185,129,.12);color:#6ee7b7;border:1px solid rgba(16,185,129,.2);}
-.badge-gold{background:rgba(245,158,11,.12);color:#fcd34d;border:1px solid rgba(245,158,11,.2);}
-.badge-purple{background:rgba(139,92,246,.12);color:#c4b5fd;border:1px solid rgba(139,92,246,.2);}
-.badge-red{background:rgba(239,68,68,.1);color:#fca5a5;border:1px solid rgba(239,68,68,.2);}
-.card-expand-btn{width:100%;background:none;border:none;border-top:1px solid var(--border);color:var(--accent3);font-size:.82rem;font-weight:600;padding:.8rem 1.5rem;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:.2s;}
-.card-expand-btn:hover{background:rgba(37,99,235,.06);}
-.card-expand-btn .arrow{transition:transform .3s;font-size:1rem;}
-.card-expand-btn.open .arrow{transform:rotate(180deg);}
-.card-detail{max-height:0;overflow:hidden;transition:max-height .4s ease;}
-.card-detail-inner{padding:1.2rem 1.5rem 1.5rem;border-top:1px solid var(--border);background:rgba(0,0,0,.15);}
-.detail-block{margin-bottom:1rem;}
-.detail-block:last-child{margin-bottom:0;}
-.detail-label{font-size:.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:.4rem;}
-.detail-text{font-size:.86rem;color:var(--text2);line-height:1.65;}
-.detail-text a{color:var(--accent3);text-decoration:none;}
-.detail-text a:hover{text-decoration:underline;}
-.detail-steps{list-style:none;counter-reset:steps;}
-.detail-steps li{counter-increment:steps;display:flex;gap:.75rem;margin-bottom:.6rem;font-size:.85rem;color:var(--text2);line-height:1.5;}
-.detail-steps li::before{content:counter(steps);width:22px;height:22px;background:rgba(37,99,235,.2);border:1px solid rgba(37,99,235,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:var(--accent3);flex-shrink:0;}
-.detail-ul{list-style:none;padding:0;}
-.detail-ul li{padding:.35rem 0;font-size:.86rem;color:var(--text2);border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:.6rem;align-items:flex-start;}
-.detail-ul li::before{content:'›';color:var(--accent);font-weight:700;flex-shrink:0;}
-.alert-box{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.82rem;color:#fcd34d;display:flex;gap:.6rem;align-items:flex-start;margin-top:.8rem;}
-.info-box{background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.82rem;color:#93c5fd;display:flex;gap:.6rem;align-items:flex-start;margin-top:.8rem;}
-.tag-obs{font-size:.72rem;font-weight:700;color:#f59e0b;background:rgba(245,158,11,.1);padding:2px 8px;border-radius:20px;border:1px solid rgba(245,158,11,.2);}
+/* HIGHLIGHT */
+.hl-strip{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem 2rem;margin-bottom:2.8rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.4rem;}
+.hl-item{display:flex;align-items:center;gap:.9rem;}
+.hl-ico{font-size:1.75rem;flex-shrink:0;}
+.hl-label{font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:1px;}
+.hl-val{font-size:.95rem;font-weight:700;color:var(--text);}
 
-/* ── UNIV TABLE ── */
-.univ-table{width:100%;border-collapse:collapse;margin-top:.8rem;}
-.univ-table th{text-align:left;font-size:.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;padding:.5rem .8rem;border-bottom:1px solid var(--border);}
-.univ-table td{padding:.6rem .8rem;font-size:.83rem;color:var(--text2);border-bottom:1px solid rgba(255,255,255,.04);}
-.univ-table tr:last-child td{border-bottom:none;}
-.univ-table .pct{font-weight:800;color:var(--accent3);}
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.4rem;}
 
-/* ── HIGHLIGHT STRIP ── */
-.highlight-strip{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;}
-.highlight-item{display:flex;align-items:center;gap:1rem;}
-.h-icon{font-size:1.8rem;flex-shrink:0;}
-.h-label{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:2px;}
-.h-val{font-size:1rem;font-weight:700;color:#e2e8f0;}
+/* BENEFIT CARD */
+.bcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;display:flex;flex-direction:column;}
+.bcard:hover{transform:translateY(-3px);border-color:rgba(37,99,235,.45);box-shadow:0 16px 50px rgba(0,0,0,.35);}
+.bc-top{display:flex;align-items:flex-start;gap:1rem;padding:1.4rem 1.4rem .8rem;}
+.bc-ico{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.bc-meta{flex:1;}
+.bc-cat{font-size:.67rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin-bottom:3px;}
+.bc-title{font-size:1.05rem;font-weight:800;color:#fff;line-height:1.2;}
+.bc-partner{font-size:.76rem;color:var(--text3);margin-top:1px;}
+.bc-body{padding:0 1.4rem 1.2rem;flex:1;}
+.bc-sum{font-size:.86rem;color:var(--text2);line-height:1.65;margin-bottom:.9rem;}
+.bc-tags{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.9rem;}
+.tag{padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;}
+.tblue{background:rgba(37,99,235,.14);color:#93c5fd;border:1px solid rgba(37,99,235,.2);}
+.tgreen{background:rgba(16,185,129,.12);color:#6ee7b7;border:1px solid rgba(16,185,129,.2);}
+.tgold{background:rgba(245,158,11,.12);color:#fcd34d;border:1px solid rgba(245,158,11,.2);}
+.tpurple{background:rgba(139,92,246,.12);color:#c4b5fd;border:1px solid rgba(139,92,246,.2);}
+.tred{background:rgba(239,68,68,.1);color:#fca5a5;border:1px solid rgba(239,68,68,.2);}
 
-/* ── CTA SECTION ── */
-#cta{background:linear-gradient(135deg,var(--bg3),var(--bg2));border-top:1px solid var(--border);}
-.cta-inner{text-align:center;padding:5rem 2rem;max-width:620px;margin:0 auto;}
-.cta-title{font-size:2rem;font-weight:800;color:#fff;margin-bottom:.8rem;}
-.cta-sub{color:var(--text2);margin-bottom:2rem;line-height:1.7;}
-.cta-email{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);border-radius:50px;padding:.6rem 1.4rem;font-size:.9rem;color:var(--accent3);font-weight:600;text-decoration:none;margin-bottom:2rem;transition:.2s;}
-.cta-email:hover{background:rgba(37,99,235,.2);}
+/* DETAIL BUTTON */
+.bc-btn{width:100%;background:none;border:none;border-top:1px solid var(--border);color:var(--accent3);font-family:'Poppins',sans-serif;font-size:.82rem;font-weight:600;padding:.85rem 1.4rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:background .2s;margin-top:auto;}
+.bc-btn:hover{background:rgba(37,99,235,.08);}
+.bc-btn .arrow{font-size:1.1rem;transition:transform .2s;}
+.bc-btn:hover .arrow{transform:scale(1.15);}
 
-/* ── FOOTER ── */
-footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text-align:center;}
-footer p{color:var(--text3);font-size:.8rem;}
+/* ─── MODAL ─── */
+.modal{display:none;position:fixed;inset:0;z-index:500;align-items:center;justify-content:center;padding:1rem;}
+.modal.open{display:flex;}
+.modal-bg{position:absolute;inset:0;background:rgba(3,8,20,.82);backdrop-filter:blur(6px);}
+.modal-box{position:relative;z-index:1;background:var(--bg2);border:1px solid rgba(37,99,235,.25);border-radius:20px;width:100%;max-width:680px;max-height:88vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.6);animation:modalIn .22s ease;}
+@keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-box::-webkit-scrollbar{width:4px;}
+.modal-box::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+.modal-head{display:flex;align-items:flex-start;gap:1rem;padding:1.6rem 1.6rem 1rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg2);z-index:2;}
+.mh-ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.mh-meta{flex:1;}
+.mh-cat{font-size:.68rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin-bottom:3px;}
+.mh-title{font-size:1.2rem;font-weight:800;color:#fff;line-height:1.2;}
+.mh-partner{font-size:.78rem;color:var(--text3);margin-top:2px;}
+.modal-close{width:34px;height:34px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:50%;color:var(--text2);font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;flex-shrink:0;margin-left:auto;}
+.modal-close:hover{background:rgba(239,68,68,.15);color:#fca5a5;border-color:rgba(239,68,68,.3);}
+.modal-body{padding:1.6rem;}
+.mb-block{margin-bottom:1.4rem;}
+.mb-block:last-child{margin-bottom:0;}
+.mb-label{font-size:.68rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.9px;margin-bottom:.45rem;}
+.mb-text{font-size:.875rem;color:var(--text2);line-height:1.7;}
+.mb-text a{color:var(--accent3);text-decoration:none;}
+.mb-text a:hover{text-decoration:underline;}
+.mb-text strong{color:var(--text);font-weight:700;}
+.mb-list{list-style:none;padding:0;}
+.mb-list li{padding:.32rem 0;font-size:.875rem;color:var(--text2);border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:.6rem;align-items:flex-start;line-height:1.55;}
+.mb-list li::before{content:'›';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;}
+.mb-steps{list-style:none;counter-reset:s;}
+.mb-steps li{counter-increment:s;display:flex;gap:.8rem;margin-bottom:.6rem;font-size:.875rem;color:var(--text2);line-height:1.55;align-items:flex-start;}
+.mb-steps li::before{content:counter(s);min-width:22px;height:22px;background:rgba(37,99,235,.18);border:1px solid rgba(37,99,235,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--accent3);flex-shrink:0;}
+.alert{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);border-radius:var(--rs);padding:.75rem 1rem;font-size:.83rem;color:#fcd34d;display:flex;gap:.6rem;align-items:flex-start;margin-top:.7rem;}
+.info{background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.22);border-radius:var(--rs);padding:.75rem 1rem;font-size:.83rem;color:#93c5fd;display:flex;gap:.6rem;align-items:flex-start;margin-top:.7rem;}
+.mb-table{width:100%;border-collapse:collapse;margin-top:.5rem;}
+.mb-table th{text-align:left;font-size:.69rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;padding:.5rem .75rem;border-bottom:1px solid var(--border);}
+.mb-table td{padding:.55rem .75rem;font-size:.83rem;color:var(--text2);border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;line-height:1.5;}
+.mb-table tr:last-child td{border-bottom:none;}
+.mb-table .pct{font-weight:800;color:var(--accent3);}
+.mb-divider{border:none;border-top:1px solid var(--border);margin:1.2rem 0;}
+
+/* NO RESULTS */
+#no-res{display:none;text-align:center;padding:3.5rem 2rem;color:var(--text3);}
+
+/* CTA */
+#cta{background:linear-gradient(160deg,var(--bg3),var(--bg2));border-top:1px solid var(--border);}
+.cta-inner{text-align:center;padding:5rem 2rem;max-width:580px;margin:0 auto;}
+.cta-title{font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:.7rem;}
+.cta-sub{color:var(--text2);margin-bottom:1.8rem;line-height:1.7;font-size:.95rem;}
+.cta-mail{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);border-radius:50px;padding:.6rem 1.4rem;font-size:.88rem;color:var(--accent3);font-weight:600;text-decoration:none;transition:.2s;}
+.cta-mail:hover{background:rgba(37,99,235,.2);}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem;text-align:center;}
+footer p{color:var(--text3);font-size:.78rem;}
 footer a{color:var(--accent3);text-decoration:none;}
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-delay-1{transition-delay:.1s;}
-.reveal-delay-2{transition-delay:.2s;}
-.reveal-delay-3{transition-delay:.3s;}
-.reveal-delay-4{transition-delay:.4s;}
+/* REVEAL */
+.rev{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.rev.on{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;}
 
-/* ── MOBILE ── */
+/* BTT */
+#btt{position:fixed;bottom:1.8rem;right:1.8rem;width:44px;height:44px;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;border-radius:50%;color:#fff;font-size:1rem;cursor:pointer;z-index:99;opacity:0;transform:translateY(8px);transition:.3s;box-shadow:0 4px 18px rgba(37,99,235,.45);}
+#btt.show{opacity:1;transform:translateY(0);}
+#btt:hover{box-shadow:0 8px 26px rgba(37,99,235,.55);}
+
+/* MOBILE */
 @media(max-width:768px){
   .nav-links{display:none;}
-  .hero-stats{gap:1.5rem;flex-wrap:wrap;}
-  .stat-divider{display:none;}
-  .benefits-grid{grid-template-columns:1fr;}
+  .hstats{gap:1.4rem;flex-wrap:wrap;}
+  .hdiv{display:none;}
+  .cards-grid{grid-template-columns:1fr;}
+  .hl-strip{grid-template-columns:repeat(2,1fr);}
+  .modal-box{max-height:94vh;}
 }
-
-/* ── TOOLTIP ── */
-[data-tip]{position:relative;}
-[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#1e3a5f;color:#e2e8f0;font-size:.75rem;padding:5px 10px;border-radius:6px;white-space:nowrap;pointer-events:none;border:1px solid var(--border);}
-
-/* ── BACK TO TOP ── */
-#btt{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;border-radius:50%;color:#fff;font-size:1.1rem;cursor:pointer;z-index:99;opacity:0;transform:translateY(10px);transition:.3s;box-shadow:0 4px 20px rgba(37,99,235,.4);}
-#btt.show{opacity:1;transform:translateY(0);}
-#btt:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,.5);}
-
-/* no-results */
-#no-results{display:none;text-align:center;padding:4rem 2rem;color:var(--text3);}
-#no-results svg{margin-bottom:1rem;opacity:.3;}
 </style>
 </head>
 <body>
 
-<!-- Progress Bar -->
-<div id="progress"></div>
-
-<!-- Particles -->
-<div id="particles"></div>
+<div id="prog"></div>
+<div id="pts"></div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <div class="dot"></div>
-    <span>Benefícios</span>
+    <div class="logo-dot"></div>
+    <span class="logo-text">Benefícios</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#beneficios">Benefícios</a></li>
-    <li><a href="#saude">Saúde</a></li>
-    <li><a href="#educacao">Educação</a></li>
+    <li><a href="#beneficios">Todos</a></li>
+    <li><a href="#saude-anchor">Saúde</a></li>
+    <li><a href="#edu-anchor">Educação</a></li>
     <li><a href="#cta">Dúvidas</a></li>
   </ul>
-  <a href="mailto:frademarh12@fradema.com.br" class="nav-cta">Falar com RH</a>
+  <a href="mailto:frademarh12@fradema.com.br" class="nav-btn">Falar com RH</a>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><div class="live"></div> Atualizado · 2026</div>
-    <h1 class="hero-title">Seus <span>Benefícios</span><br>em um só lugar</h1>
-    <p class="hero-sub">Tudo o que você precisa saber sobre os benefícios disponíveis para você. Explore, compare e aproveite ao máximo.</p>
-    <div class="hero-btns">
-      <a href="#beneficios" class="btn-primary">Explorar benefícios</a>
-      <a href="mailto:frademarh12@fradema.com.br" class="btn-outline">Falar com o RH</a>
+  <div class="hero-inner">
+    <div class="hero-pill"><div class="live"></div>&nbsp;Atualizado · 2026</div>
+    <h1 class="htitle">Seus <em>Benefícios</em><br>em um só lugar</h1>
+    <p class="hsub">Tudo o que você precisa saber sobre os benefícios disponíveis. Explore, compare e aproveite ao máximo cada vantagem.</p>
+    <div class="hbtns">
+      <a href="#beneficios" class="btn-main">Explorar benefícios</a>
+      <a href="mailto:frademarh12@fradema.com.br" class="btn-ghost">Falar com o RH</a>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num"><span class="counter" data-target="11">0</span></div><div class="stat-label">Benefícios ativos</div></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><div class="stat-num"><span class="counter" data-target="80">0</span><span>%</span></div><div class="stat-label">Desc. farmácias</div></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><div class="stat-num"><span class="counter" data-target="5">0</span></div><div class="stat-label">Universidades parceiras</div></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><div class="stat-num"><span class="counter" data-target="24">0</span><span>h</span></div><div class="stat-label">Telemedicina</div></div>
+    <div class="hstats">
+      <div class="hstat"><div class="hstat-n"><span class="ctr" data-t="11">0</span></div><div class="hstat-l">Benefícios ativos</div></div>
+      <div class="hdiv"></div>
+      <div class="hstat"><div class="hstat-n"><span class="ctr" data-t="80">0</span><span style="color:#fff">%</span></div><div class="hstat-l">Desc. farmácias</div></div>
+      <div class="hdiv"></div>
+      <div class="hstat"><div class="hstat-n"><span class="ctr" data-t="5">0</span></div><div class="hstat-l">Universidades parceiras</div></div>
+      <div class="hdiv"></div>
+      <div class="hstat"><div class="hstat-n"><span class="ctr" data-t="24">0</span><span style="color:#fff">h</span></div><div class="hstat-l">Telemedicina</div></div>
     </div>
   </div>
 </section>
 
 <!-- SEARCH -->
-<div id="search-section">
-  <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input id="search-input" type="text" placeholder="Buscar benefício… ex: academia, terapia, vale transporte">
+<div id="search-wrap">
+  <div class="srch-box">
+    <span class="srch-ico">🔍</span>
+    <input id="srch" type="text" placeholder="Buscar benefício... ex: academia, terapia, vale transporte">
   </div>
 </div>
 
-<!-- BENEFITS -->
+<!-- BENEFÍCIOS -->
 <section id="beneficios">
 <div class="section-wrap">
 
-  <div class="section-header reveal">
-    <div class="section-tag">Pacote completo</div>
-    <h2 class="section-title">Todos os seus benefícios</h2>
-    <p class="section-sub">Clique em qualquer card para ver todos os detalhes, regras e como ativar.</p>
+  <div class="sec-head rev">
+    <div class="sec-tag">Pacote completo</div>
+    <h2 class="sec-title">Todos os seus benefícios</h2>
+    <p class="sec-sub">Clique em "Ver detalhes" em qualquer card para conhecer as regras, prazos e como ativar.</p>
   </div>
 
-  <div class="highlight-strip reveal">
-    <div class="highlight-item"><div class="h-icon">🚌</div><div><div class="h-label">Vale Transporte</div><div class="h-val">Sem Parar Empresas</div></div></div>
-    <div class="highlight-item"><div class="h-icon">🍽️</div><div><div class="h-label">VA · VR</div><div class="h-val">Swile Mastercard</div></div></div>
-    <div class="highlight-item"><div class="h-icon">❤️</div><div><div class="h-label">Plano de Saúde</div><div class="h-val">SulAmérica</div></div></div>
-    <div class="highlight-item"><div class="h-icon">🎓</div><div><div class="h-label">Educação</div><div class="h-val">5 universidades</div></div></div>
-    <div class="highlight-item"><div class="h-icon">🏋️</div><div><div class="h-label">Bem-estar</div><div class="h-val">TotalPass</div></div></div>
+  <div class="hl-strip rev">
+    <div class="hl-item"><div class="hl-ico">🚌</div><div><div class="hl-label">Vale Transporte</div><div class="hl-val">Sem Parar Empresas</div></div></div>
+    <div class="hl-item"><div class="hl-ico">🍽️</div><div><div class="hl-label">VA · VR</div><div class="hl-val">Swile Mastercard</div></div></div>
+    <div class="hl-item"><div class="hl-ico">❤️</div><div><div class="hl-label">Plano de Saúde</div><div class="hl-val">SulAmérica</div></div></div>
+    <div class="hl-item"><div class="hl-ico">🎓</div><div><div class="hl-label">Educação</div><div class="hl-val">5 universidades</div></div></div>
+    <div class="hl-item"><div class="hl-ico">🏋️</div><div><div class="hl-label">Bem-estar</div><div class="hl-val">TotalPass</div></div></div>
   </div>
 
-  <div class="benefits-grid" id="cards-grid">
+  <div class="cards-grid" id="grid">
 
-    <!-- 1. VALE TRANSPORTE -->
-    <div class="benefit-card reveal" data-search="vale transporte sem parar ônibus metrô cartão recarga passagem">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(37,99,235,.15);">🚌</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#60a5fa;">Mobilidade</div>
-          <div class="card-title">Vale Transporte</div>
-          <div class="card-partner">Sem Parar Empresas</div>
+    <!-- 1 -->
+    <div class="bcard rev" data-s="vale transporte sem parar onibus metro cartao recarga passagem">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(37,99,235,.15)">🚌</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#60a5fa">Mobilidade</div>
+          <div class="bc-title">Vale Transporte</div>
+          <div class="bc-partner">Sem Parar Empresas</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">Recarga mensal antecipada para o mês seguinte, com suporte a todos os modais de transporte público.</p>
-        <div class="card-badges">
-          <span class="badge badge-blue">Recarga até dia 14</span>
-          <span class="badge badge-gold">Disponível no último dia útil</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">Recarga mensal antecipada gerenciada pela Sem Parar Empresas. Solicite alterações até o dia 14 de cada mês.</p>
+        <div class="bc-tags"><span class="tag tblue">Solicitar até dia 14</span><span class="tag tgold">Recarga no último dia útil</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">Como funciona</div>
-            <div class="detail-text">Utilizamos a <strong>Sem Parar Empresas</strong> como administradora de cartões. As recargas são realizadas com antecedência para o mês seguinte.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Prazo importante</div>
-            <div class="detail-text">Qualquer alteração de valor de passagem, inclusão de modal ou ativação/suspensão do benefício deve ser solicitada por e-mail até o <strong>dia 14 de cada mês</strong>.</div>
-            <div class="alert-box">⚠️ Após o dia 14, alterações só entram em vigor no mês seguinte.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Disponibilidade da recarga</div>
-            <div class="detail-text">O saldo do próximo mês fica disponível até o <strong>último dia útil do mês corrente</strong>.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Solicitações</div>
-            <div class="detail-text">Envie e-mail para: <a href="mailto:frademarh12@fradema.com.br">frademarh12@fradema.com.br</a></div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">2ª via do cartão</div>
-            <div class="detail-text">Para solicitar a 2ª via, entre em contato com o RH antes de qualquer solicitação junto à Sem Parar.</div>
-          </div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m1">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 2. VALE ALIMENTAÇÃO / REFEIÇÃO -->
-    <div class="benefit-card reveal reveal-delay-1" data-search="vale alimentação refeição swile mastercard mercado restaurante comida va vr">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(16,185,129,.12);">🍽️</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#6ee7b7;">Alimentação</div>
-          <div class="card-title">Vale Alimentação · Refeição</div>
-          <div class="card-partner">Swile — Mastercard Bandeirado</div>
+    <!-- 2 -->
+    <div class="bcard rev d1" data-s="vale alimentacao refeicao swile mastercard mercado restaurante va vr">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(16,185,129,.12)">🍽️</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#6ee7b7">Alimentação</div>
+          <div class="bc-title">Vale Alimentação e Refeição</div>
+          <div class="bc-partner">Swile — Mastercard Bandeirado</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">Cartão Mastercard único para VA e VR, aceito em qualquer maquininha no crédito à vista. Sem restrição de estabelecimento.</p>
-        <div class="card-badges">
-          <span class="badge badge-green">Crédito à vista</span>
-          <span class="badge badge-green">Voucher disponível</span>
-          <span class="badge badge-purple">Mastercard Surpreenda</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">Cartão Mastercard único aceito em qualquer maquininha no crédito à vista, para VA e VR.</p>
+        <div class="bc-tags"><span class="tag tgreen">Crédito à vista</span><span class="tag tgreen">Voucher disponível</span><span class="tag tpurple">Mastercard Surpreenda</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">Como funciona</div>
-            <div class="detail-text">O <strong>Swile</strong> é um cartão bandeirado <strong>Mastercard</strong> com saldo único que serve tanto para alimentação quanto para refeição. O estabelecimento precisa ter CNPJ vinculado a alimentação ou refeição.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Onde usar</div>
-            <div class="detail-text">Passe em qualquer maquininha na <strong>função crédito à vista</strong>. Em mercados que não aceitam crédito, use como <strong>Voucher</strong>.</div>
-            <div class="info-box">💡 Não precisa mais verificar se o local aceita VA ou VR separadamente.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Benefícios extras incluídos</div>
-            <ul class="detail-ul">
-              <li><strong>Mastercard Surpreenda</strong>: programa de pontos e benefícios Mastercard</li>
-              <li><strong>Swile Shop</strong>: descontos em parceiros exclusivos da Swile</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m2">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 3. TELEMEDICINA -->
-    <div class="benefit-card reveal" id="saude" data-search="telemedicina mawdy médico consulta 24h online saúde">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(96,165,250,.12);">⚕️</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#93c5fd;">Saúde</div>
-          <div class="card-title">Telemedicina 24h</div>
-          <div class="card-partner">Mawdy</div>
+    <!-- 3 - anchor saude -->
+    <div class="bcard rev d2" id="saude-anchor" data-s="telemedicina mawdy medico consulta 24h online saude">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(96,165,250,.12)">⚕️</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#93c5fd">Saúde</div>
+          <div class="bc-title">Telemedicina 24h</div>
+          <div class="bc-partner">Mawdy</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">Acesso a médicos online, 24 horas por dia, 7 dias por semana, diretamente pelo app Mawdy.</p>
-        <div class="card-badges">
-          <span class="badge badge-blue">24h / 7 dias</span>
-          <span class="badge badge-red">Só colaborador</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">Acesso a médicos online 24 horas por dia, 7 dias por semana, direto pelo app Mawdy.</p>
+        <div class="bc-tags"><span class="tag tblue">24h / 7 dias</span><span class="tag tred">Exclusivo colaborador</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">Plataforma</div>
-            <div class="detail-text">O <strong>Mawdy</strong> oferece consultas médicas online a qualquer hora do dia ou da noite, incluindo fins de semana e feriados.</div>
-          </div>
-          <div class="alert-box">⚠️ Este benefício é exclusivo para o colaborador. Não cobre dependentes.</div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m3">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 4. DESCONTO FARMÁCIA -->
-    <div class="benefit-card reveal reveal-delay-1" data-search="farmácia desconto drogasil droga raia remédio medicamento mawdy">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(239,68,68,.1);">💊</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#fca5a5;">Saúde</div>
-          <div class="card-title">Desconto nas Farmácias</div>
-          <div class="card-partner">Mawdy · Drogasil · Droga Raia</div>
+    <!-- 4 -->
+    <div class="bcard rev" data-s="farmacia desconto drogasil droga raia remedio medicamento mawdy">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(239,68,68,.1)">💊</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#fca5a5">Saúde</div>
+          <div class="bc-title">Desconto nas Farmácias</div>
+          <div class="bc-partner">Mawdy · Drogasil · Droga Raia</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">Até <strong style="color:#fcd34d;">80% de desconto</strong> em medicamentos nas redes Drogasil e Droga Raia, via plataforma Mawdy.</p>
-        <div class="card-badges">
-          <span class="badge badge-gold">Até 80% off</span>
-          <span class="badge badge-red">Só colaborador</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">Até <strong style="color:#fcd34d">80% de desconto</strong> em medicamentos nas redes Drogasil e Droga Raia via app Mawdy.</p>
+        <div class="bc-tags"><span class="tag tgold">Até 80% off</span><span class="tag tred">Exclusivo colaborador</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">Como usar</div>
-            <div class="detail-text">O desconto é acessado pelo app <strong>Mawdy</strong>. Válido exclusivamente nas redes <strong>Drogasil</strong> e <strong>Droga Raia</strong>.</div>
-          </div>
-          <div class="alert-box">⚠️ Benefício exclusivo para o colaborador. Não extensivo a dependentes.</div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m4">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 5. VIRTUDE (TERAPIA) -->
-    <div class="benefit-card reveal reveal-delay-2" data-search="terapia psicologia virtude saúde mental desconto sessão">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(139,92,246,.12);">🧠</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#c4b5fd;">Saúde Mental</div>
-          <div class="card-title">Terapia Online</div>
-          <div class="card-partner">Virtude</div>
+    <!-- 5 -->
+    <div class="bcard rev d1" data-s="terapia psicologia virtude saude mental desconto sessao">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(139,92,246,.12)">🧠</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#c4b5fd">Saúde Mental</div>
+          <div class="bc-title">Terapia Online</div>
+          <div class="bc-partner">Virtude</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary"><strong style="color:#fcd34d;">40% de desconto</strong> em sessões de terapia na plataforma Virtude. Segura, acessível e 100% online.</p>
-        <div class="card-badges">
-          <span class="badge badge-purple">40% off sessões</span>
-          <span class="badge badge-red">Só colaborador</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum"><strong style="color:#fcd34d">40% de desconto</strong> em sessões de terapia na plataforma Virtude. 100% online e seguro.</p>
+        <div class="bc-tags"><span class="tag tpurple">40% off sessões</span><span class="tag tred">Exclusivo colaborador</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">O que é a Virtude</div>
-            <div class="detail-text">Plataforma segura de saúde mental que oferece <strong>40% de desconto</strong> em sessões de psicoterapia com profissionais certificados.</div>
-          </div>
-          <div class="alert-box">⚠️ Benefício exclusivo para o colaborador. Não extensivo a dependentes.</div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m5">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 6. DAY OFF ANIVERSÁRIO -->
-    <div class="benefit-card reveal" data-search="aniversário day off folga sexta aniversário mês">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(245,158,11,.1);">🎂</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#fcd34d;">Qualidade de Vida</div>
-          <div class="card-title">Day Off de Aniversário</div>
-          <div class="card-partner">Folga remunerada</div>
+    <!-- 6 -->
+    <div class="bcard rev d2" data-s="aniversario day off folga sexta mes">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(245,158,11,.1)">🎂</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#fcd34d">Qualidade de Vida</div>
+          <div class="bc-title">Day Off de Aniversário</div>
+          <div class="bc-partner">Folga remunerada</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">No mês do seu aniversário, você ganha uma sexta-feira de folga. Sua escolha — 1ª ou 2ª quinzena.</p>
-        <div class="card-badges">
-          <span class="badge badge-gold">1 sexta por mês</span>
-          <span class="badge badge-blue">Sua escolha de quinzena</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">No mês do seu aniversário, escolha uma sexta-feira de folga remunerada — 1ª ou 2ª quinzena.</p>
+        <div class="bc-tags"><span class="tag tgold">1 sexta por mês</span><span class="tag tblue">Sua escolha de quinzena</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">Como funciona</div>
-            <div class="detail-text">No mês do seu aniversário, você pode escolher uma <strong>sexta-feira</strong> — seja na <strong>1ª ou 2ª quinzena</strong> — para tirar o seu dia de folga remunerada.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Importante</div>
-            <div class="detail-text">O dia precisa ser <strong>acordado com antecedência</strong> com o coordenador do setor ou o gestor da filial.</div>
-          </div>
-          <div class="info-box">💡 Planeje com antecedência para garantir a data que você quer!</div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m6">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 7. TOTALPASS -->
-    <div class="benefit-card reveal reveal-delay-1" data-search="academia totalpass ginástica exercício bem-estar fitness psicologia nutrição">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(16,185,129,.1);">🏋️</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#6ee7b7;">Bem-estar</div>
-          <div class="card-title">TotalPass</div>
-          <div class="card-partner">Academia + Apps de saúde</div>
+    <!-- 7 -->
+    <div class="bcard rev" data-s="academia totalpass ginastica exercicio bem-estar fitness psicologia nutricao">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(16,185,129,.1)">🏋️</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#6ee7b7">Bem-estar</div>
+          <div class="bc-title">TotalPass</div>
+          <div class="bc-partner">Academia + Apps de saúde</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">Acesso a academias, psicologia online, nutrição personalizada e telemedicina em um único app.</p>
-        <div class="card-badges">
-          <span class="badge badge-green">A partir de R$ 39,90</span>
-          <span class="badge badge-blue">Até 3 dependentes</span>
-          <span class="badge badge-purple">Apps parceiros</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">Acesso a academias, psicologia online, nutrição personalizada e telemedicina em um único app.</p>
+        <div class="bc-tags"><span class="tag tgreen">A partir de R$ 39,90</span><span class="tag tblue">Até 3 dependentes</span><span class="tag tpurple">Apps parceiros</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">Como se cadastrar</div>
-            <ol class="detail-steps">
-              <li>Faça o download do app <strong>TotalPass</strong> e clique em <em>Cadastrar</em></li>
-              <li>Insira suas informações cadastrais</li>
-              <li>Selecione sua empresa e confirme</li>
-              <li>Finalize o cadastro preenchendo os dados solicitados</li>
-              <li>Vá em <strong>Minha Conta &rsaquo; Meu Plano</strong></li>
-              <li>Escolha o plano que combina mais com você</li>
-            </ol>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Sobre os planos</div>
-            <div class="detail-text">Planos <strong>a partir de R$ 39,90</strong>, custeados pelo próprio colaborador. Para fazer check-in nas academias, é necessário ativar um plano. Abrange até <strong>3 dependentes</strong>.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Apps parceiros incluídos</div>
-            <ul class="detail-ul">
-              <li><strong>Total Mind</strong>: sessões de psicologia online com mais de 400 áudios de meditação</li>
-              <li><strong>Total Nutri</strong>: plano alimentar personalizado</li>
-              <li><strong>Conexa</strong>: telemedicina online</li>
-            </ul>
-            <div class="info-box" style="margin-top:.8rem;">💡 Acesso aos apps varia conforme o plano escolhido.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Acesso</div>
-            <div class="detail-text"><a href="https://divulgacao-tp.glide.page/dl/a400f7" target="_blank">→ Acessar portal TotalPass</a></div>
-          </div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m7">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 8. OPEN ENGLISH -->
-    <div class="benefit-card reveal reveal-delay-2" data-search="inglês open english idioma curso língua professores">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(96,165,250,.1);">🌎</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#93c5fd;">Idiomas</div>
-          <div class="card-title">Open English</div>
-          <div class="card-partner">Inglês 24h com professores nativos</div>
+    <!-- 8 -->
+    <div class="bcard rev d1" data-s="ingles open english idioma curso lingua professores">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(96,165,250,.1)">🌎</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#93c5fd">Idiomas</div>
+          <div class="bc-title">Open English</div>
+          <div class="bc-partner">Inglês 24h com professores nativos</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary"><strong style="color:#fcd34d;">60 a 80% de desconto</strong> em cursos de inglês online com professores nativos, acessível 24h por dia.</p>
-        <div class="card-badges">
-          <span class="badge badge-gold">Até 80% off</span>
-          <span class="badge badge-blue">Extensivo a dependentes</span>
-          <span class="badge badge-green">24h disponível</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum"><strong style="color:#fcd34d">60 a 80% de desconto</strong> em cursos de inglês online com professores nativos, disponível 24h.</p>
+        <div class="bc-tags"><span class="tag tgold">Até 80% off</span><span class="tag tblue">Extensivo a dependentes</span><span class="tag tgreen">24h disponível</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">O que inclui</div>
-            <ul class="detail-ul">
-              <li>60 a 80% de desconto nos cursos</li>
-              <li>Acesso ao curso 24 horas por dia</li>
-              <li>Professores nativos</li>
-              <li>Práticas interativas com conteúdo específico</li>
-              <li>Extensivo ao colaborador <strong>e dependentes</strong></li>
-            </ul>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Como contratar</div>
-            <div class="detail-text">Entre em contato com o RH para receber o link e código de acesso com desconto: <a href="mailto:frademarh12@fradema.com.br">frademarh12@fradema.com.br</a></div>
-          </div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m8">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 9. SESC -->
-    <div class="benefit-card reveal" data-search="sesc lazer cultura saúde educação esporte credenciamento">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(245,158,11,.1);">🏖️</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#fcd34d;">Lazer & Cultura</div>
-          <div class="card-title">SESC</div>
-          <div class="card-partner">Serviço Social do Comércio</div>
+    <!-- 9 -->
+    <div class="bcard rev d2" data-s="sesc lazer cultura saude educacao esporte credenciamento">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(245,158,11,.1)">🏖️</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#fcd34d">Lazer e Cultura</div>
+          <div class="bc-title">SESC</div>
+          <div class="bc-partner">Serviço Social do Comércio</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">Acesso a uma das maiores redes de bem-estar do Brasil: educação, saúde, cultura, lazer e assistência.</p>
-        <div class="card-badges">
-          <span class="badge badge-gold">Educação</span>
-          <span class="badge badge-green">Saúde</span>
-          <span class="badge badge-purple">Cultura</span>
-          <span class="badge badge-blue">Lazer</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">Uma das maiores redes de bem-estar do Brasil: educação, saúde, cultura, lazer e assistência.</p>
+        <div class="bc-tags"><span class="tag tgold">Educação</span><span class="tag tgreen">Saúde</span><span class="tag tpurple">Cultura</span><span class="tag tblue">Lazer</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">Como se credenciar</div>
-            <div class="detail-text">Compareça ao <strong>SESC mais próximo</strong> portando <strong>RG</strong>, <strong>CPF</strong> e seu <strong>último contracheque</strong>.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Conheça o SESC</div>
-            <div class="detail-text"><a href="https://www.sesc.com.br/empresas/" target="_blank">→ Acesse sesc.com.br/empresas</a> e veja todos os serviços disponíveis.</div>
-          </div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m9">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 10. SULAMERICA SAÚDE -->
-    <div class="benefit-card reveal reveal-delay-1" data-search="sulamerica plano saúde médico odonto seguro vida cobertura nacional">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(239,68,68,.1);">❤️</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#fca5a5;">Saúde</div>
-          <div class="card-title">Plano de Saúde + Odonto + Seguro de Vida</div>
-          <div class="card-partner">SulAmérica Saúde</div>
+    <!-- 10 -->
+    <div class="bcard rev" data-s="sulamerica plano saude medico odonto seguro vida cobertura nacional">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(239,68,68,.1)">❤️</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#fca5a5">Saúde</div>
+          <div class="bc-title">Plano de Saúde + Odonto + Seguro de Vida</div>
+          <div class="bc-partner">SulAmérica Saúde</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">Cobertura nacional com um dos melhores planos de saúde do mercado, mais plano odontológico e seguro de vida.</p>
-        <div class="card-badges">
-          <span class="badge badge-red">Cobertura nacional</span>
-          <span class="badge badge-blue">Plano saúde</span>
-          <span class="badge badge-green">Odonto</span>
-          <span class="badge badge-purple">Seguro de vida</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">Cobertura nacional com plano de saúde, plano odontológico e seguro de vida inclusos.</p>
+        <div class="bc-tags"><span class="tag tred">Cobertura nacional</span><span class="tag tblue">Saúde</span><span class="tag tgreen">Odonto</span><span class="tag tpurple">Seguro de vida</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <div class="detail-block">
-            <div class="detail-label">Plano de Saúde</div>
-            <div class="detail-text">SulAmérica Saúde com <strong>cobertura nacional</strong>. Consulte a apresentação completa com todas as informações do plano, tabela de carências e exemplos de coparticipação com o RH.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Plano Odontológico</div>
-            <div class="detail-text">Incluído no pacote SulAmérica. Consulte a tabela de carências odontológicas com o RH.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Seguro de Vida</div>
-            <div class="detail-text">Cobertura de seguro de vida inclusa no pacote. Para detalhes da apólice, solicite ao RH.</div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">App SulAmérica</div>
-            <div class="detail-text">Gerencie seu plano pelo aplicativo SulAmérica Saúde e SulAmérica Odonto. Solicite o guia de uso ao RH.</div>
-          </div>
-          <div class="info-box">💡 Para dúvidas sobre carências, coparticipações ou inclusão de dependentes, entre em contato com o RH.</div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m10">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-    <!-- 11. UNIVERSIDADES -->
-    <div class="benefit-card reveal reveal-delay-2" id="educacao" data-search="universidade faculdade unip fgv puc estácio uva graduação pós mba desconto educação">
-      <div class="card-header">
-        <div class="card-icon" style="background:rgba(139,92,246,.12);">🎓</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#c4b5fd;">Educação</div>
-          <div class="card-title">Convênio com Universidades</div>
-          <div class="card-partner">UNIP · FGV · PUC PR · Estácio · UVA</div>
+    <!-- 11 -->
+    <div class="bcard rev d1" id="edu-anchor" data-s="universidade faculdade unip fgv puc estacio uva graduacao pos mba desconto educacao">
+      <div class="bc-top">
+        <div class="bc-ico" style="background:rgba(139,92,246,.12)">🎓</div>
+        <div class="bc-meta">
+          <div class="bc-cat" style="color:#c4b5fd">Educação</div>
+          <div class="bc-title">Convênio com Universidades</div>
+          <div class="bc-partner">UNIP · FGV · PUC PR · Estácio · UVA</div>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-summary">Descontos de <strong style="color:#fcd34d;">10 a 25%</strong> em 5 instituições de ensino superior. Extensivo a dependentes.</p>
-        <div class="card-badges">
-          <span class="badge badge-purple">5 universidades</span>
-          <span class="badge badge-blue">Extensivo a dependentes</span>
-          <span class="badge badge-gold">Até 25% off</span>
-        </div>
+      <div class="bc-body">
+        <p class="bc-sum">Descontos de <strong style="color:#fcd34d">10 a 25%</strong> em 5 instituições de ensino superior, extensivos a dependentes.</p>
+        <div class="bc-tags"><span class="tag tpurple">5 universidades</span><span class="tag tblue">Extensivo a dependentes</span><span class="tag tgold">Até 25% off</span></div>
       </div>
-      <button class="card-expand-btn">
-        Ver detalhes completos <span class="arrow">⌄</span>
-      </button>
-      <div class="card-detail">
-        <div class="card-detail-inner">
-          <table class="univ-table">
-            <tr><th>Instituição</th><th>Desconto</th><th>Abrangência</th></tr>
-            <tr><td>UNIP</td><td class="pct">10%</td><td>EAD, Flex e Presencial. Graduação (exceto Medicina, Vet. e Odonto) e Pós-Graduação Lato Sensu</td></tr>
-            <tr><td>FGV</td><td class="pct">10% cursos<br>20% livros</td><td>MBAs, pós-graduação e aperfeiçoamento nas unidades RJ, SP, Campinas, BH e DF. Livros online com 20% off</td></tr>
-            <tr><td>PUC PR</td><td class="pct">10 a 25%</td><td>Desconto comercial conforme regras do convênio. Consultar o RH para obter o regulamento</td></tr>
-            <tr><td>Estácio de Sá</td><td class="pct">Por campanha</td><td>Desconto varia conforme a campanha vigente do mês. Contato: Evelyn (21) 97915-0122 via WhatsApp</td></tr>
-            <tr><td>UVA (Veiga de Almeida)</td><td class="pct">10%*</td><td>*Pode variar conforme o mês vigente</td></tr>
-          </table>
-          <div class="alert-box" style="margin-top:1rem;">⚠️ Todos os descontos se estendem a dependentes do colaborador.</div>
-          <div class="detail-block" style="margin-top:1rem;">
-            <div class="detail-label">FGV — Site oficial</div>
-            <div class="detail-text"><a href="https://educacao-executiva.fgv.br/rj/rio-de-janeiro" target="_blank">→ educacao-executiva.fgv.br</a></div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-label">Estácio — Consultora</div>
-            <div class="detail-text"><strong>Evelyn</strong> · WhatsApp: (21) 97915-0122</div>
-          </div>
-        </div>
-      </div>
+      <button class="bc-btn" data-modal="m11">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
-  </div><!-- /benefits-grid -->
-
-  <div id="no-results">
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <p>Nenhum benefício encontrado para "<span id="no-results-term"></span>"</p>
-  </div>
+  </div><!-- /grid -->
+  <div id="no-res"><p style="font-size:.95rem">Nenhum benefício encontrado para este termo.</p></div>
 
 </div>
 </section>
@@ -723,121 +473,513 @@ footer a{color:var(--accent3);text-decoration:none;}
 <!-- CTA -->
 <section id="cta">
   <div class="cta-inner">
-    <div class="section-tag" style="margin-bottom:1rem;">Precisa de ajuda?</div>
+    <div class="sec-tag" style="margin-bottom:.8rem">Precisa de ajuda?</div>
     <h2 class="cta-title">Ficou com dúvidas?</h2>
-    <p class="cta-sub">Este manual cobre os pontos principais de cada benefício. Para situações específicas, alterações, inclusões ou qualquer esclarecimento adicional, fale diretamente com o RH.</p>
-    <a href="mailto:frademarh12@fradema.com.br" class="cta-email">✉️ frademarh12@fradema.com.br</a>
-    <br>
-    <p style="color:var(--text3);font-size:.82rem;">O RH está disponível para te auxiliar em qualquer etapa da ativação dos seus benefícios.</p>
+    <p class="cta-sub">Este manual apresenta os pontos principais de cada benefício. Para situações específicas, inclusões, alterações ou qualquer esclarecimento, fale com o RH.</p>
+    <a href="mailto:frademarh12@fradema.com.br" class="cta-mail">✉️ frademarh12@fradema.com.br</a>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>Manual de Benefícios do Colaborador · Atualizado em 2026 · <a href="mailto:frademarh12@fradema.com.br">Contato RH</a></p>
-</footer>
+<footer><p>Manual de Benefícios do Colaborador · Atualizado em 2026 · <a href="mailto:frademarh12@fradema.com.br">Contato RH</a></p></footer>
 
-<!-- Back to top -->
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+<!-- ══════════════ MODAIS ══════════════ -->
+
+<!-- M1: VALE TRANSPORTE -->
+<div class="modal" id="m1">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(37,99,235,.15)">🚌</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#60a5fa">Mobilidade</div>
+        <div class="mh-title">Vale Transporte</div>
+        <div class="mh-partner">Sem Parar Empresas</div>
+      </div>
+      <button class="modal-close" data-close="m1">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">Como funciona</div>
+        <p class="mb-text">Utilizamos a <strong>Sem Parar Empresas</strong> como administradora do cartão. As recargas são realizadas com antecedência para o mês seguinte.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Prazo importante</div>
+        <p class="mb-text">Qualquer alteração de valor de passagem, inclusão de modal ou ativação/suspensão do benefício deve ser solicitada por e-mail até o <strong>dia 14 de cada mês</strong>.</p>
+        <div class="alert">⚠️ Após o dia 14, alterações só entram em vigor no mês seguinte.</div>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Disponibilidade da recarga</div>
+        <p class="mb-text">O saldo do próximo mês fica disponível até o <strong>último dia útil do mês corrente</strong>.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Solicitações e contato</div>
+        <p class="mb-text">Envie sua solicitação para: <a href="mailto:frademarh12@fradema.com.br">frademarh12@fradema.com.br</a></p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">2ª via do cartão</div>
+        <p class="mb-text">Antes de solicitar a 2ª via diretamente com a Sem Parar, entre em contato com o RH para orientação.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- M2: VALE ALIMENTAÇÃO -->
+<div class="modal" id="m2">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(16,185,129,.12)">🍽️</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#6ee7b7">Alimentação</div>
+        <div class="mh-title">Vale Alimentação e Refeição</div>
+        <div class="mh-partner">Swile — Mastercard Bandeirado</div>
+      </div>
+      <button class="modal-close" data-close="m2">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">Como funciona</div>
+        <p class="mb-text">O <strong>Swile</strong> é um cartão bandeirado <strong>Mastercard</strong> com saldo único que serve tanto para alimentação quanto para refeição. O estabelecimento precisa ter CNPJ vinculado a alimentação ou refeição.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Onde usar</div>
+        <p class="mb-text">Passe em qualquer maquininha na <strong>função crédito à vista</strong>. Em mercados que não aceitam cartão de crédito, utilize como <strong>Voucher</strong>.</p>
+        <div class="info">💡 Não precisa mais verificar se o local aceita VA ou VR separadamente.</div>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Benefícios extras</div>
+        <ul class="mb-list">
+          <li><strong>Mastercard Surpreenda</strong>: programa de pontos e benefícios Mastercard</li>
+          <li><strong>Swile Shop</strong>: descontos em parceiros exclusivos da plataforma Swile</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- M3: TELEMEDICINA -->
+<div class="modal" id="m3">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(96,165,250,.12)">⚕️</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#93c5fd">Saúde</div>
+        <div class="mh-title">Telemedicina 24h</div>
+        <div class="mh-partner">Mawdy</div>
+      </div>
+      <button class="modal-close" data-close="m3">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">O que é</div>
+        <p class="mb-text">O <strong>Mawdy</strong> é a plataforma de telemedicina disponível <strong>24 horas por dia, 7 dias por semana</strong>, incluindo fins de semana e feriados. Acesso totalmente online.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Como acessar</div>
+        <p class="mb-text">Baixe o aplicativo <strong>Mawdy</strong> e utilize seu login corporativo. Em caso de dúvidas sobre o acesso, entre em contato com o RH.</p>
+      </div>
+      <div class="alert">⚠️ Este benefício é exclusivo para o colaborador. Não cobre dependentes.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M4: FARMÁCIAS -->
+<div class="modal" id="m4">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(239,68,68,.1)">💊</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#fca5a5">Saúde</div>
+        <div class="mh-title">Desconto nas Farmácias</div>
+        <div class="mh-partner">Mawdy · Drogasil · Droga Raia</div>
+      </div>
+      <button class="modal-close" data-close="m4">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">Desconto disponível</div>
+        <p class="mb-text">Através do <strong>Mawdy</strong>, você tem acesso a até <strong>80% de desconto</strong> em medicamentos nas redes <strong>Drogasil</strong> e <strong>Droga Raia</strong>.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Como usar</div>
+        <p class="mb-text">Acesse o app <strong>Mawdy</strong>, localize o benefício de desconto em farmácias e apresente o cupom ou QR Code no momento da compra.</p>
+      </div>
+      <div class="alert">⚠️ Benefício exclusivo para o colaborador. Não extensivo a dependentes.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M5: VIRTUDE -->
+<div class="modal" id="m5">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(139,92,246,.12)">🧠</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#c4b5fd">Saúde Mental</div>
+        <div class="mh-title">Terapia Online</div>
+        <div class="mh-partner">Virtude</div>
+      </div>
+      <button class="modal-close" data-close="m5">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">O que é a Virtude</div>
+        <p class="mb-text">A <strong>Virtude</strong> é uma plataforma segura de saúde mental que oferece sessões de psicoterapia com profissionais certificados, com <strong>40% de desconto</strong> para colaboradores.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Como acessar</div>
+        <p class="mb-text">Para obter o link e código de acesso com desconto, entre em contato com o RH: <a href="mailto:frademarh12@fradema.com.br">frademarh12@fradema.com.br</a></p>
+      </div>
+      <div class="alert">⚠️ Benefício exclusivo para o colaborador. Não extensivo a dependentes.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M6: DAY OFF -->
+<div class="modal" id="m6">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(245,158,11,.1)">🎂</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#fcd34d">Qualidade de Vida</div>
+        <div class="mh-title">Day Off de Aniversário</div>
+        <div class="mh-partner">Folga remunerada</div>
+      </div>
+      <button class="modal-close" data-close="m6">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">Como funciona</div>
+        <p class="mb-text">No mês do seu aniversário, você pode escolher uma <strong>sexta-feira</strong> para tirar folga remunerada. A escolha pode ser na <strong>1ª ou 2ª quinzena</strong> do mês.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Importante</div>
+        <p class="mb-text">A data precisa ser <strong>acordada com antecedência</strong> com o coordenador do setor ou o gestor da filial.</p>
+      </div>
+      <div class="info">💡 Planeje com antecedência para garantir a sexta que preferir.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M7: TOTALPASS -->
+<div class="modal" id="m7">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(16,185,129,.1)">🏋️</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#6ee7b7">Bem-estar</div>
+        <div class="mh-title">TotalPass</div>
+        <div class="mh-partner">Academia + Apps de saúde</div>
+      </div>
+      <button class="modal-close" data-close="m7">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">Passo a passo para se cadastrar</div>
+        <ol class="mb-steps">
+          <li>Baixe o app <strong>TotalPass</strong> e clique em <em>Cadastrar</em></li>
+          <li>Insira suas informações cadastrais</li>
+          <li>Selecione sua empresa e confirme</li>
+          <li>Finalize o cadastro preenchendo os dados solicitados</li>
+          <li>Acesse <strong>Minha Conta &gt; Meu Plano</strong></li>
+          <li>Escolha o plano que combina mais com você</li>
+        </ol>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Sobre os planos</div>
+        <p class="mb-text">Planos <strong>a partir de R$ 39,90</strong>, custeados pelo colaborador. Para fazer check-in em academias, é necessário ativar um plano. Abrange até <strong>3 dependentes</strong>.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Apps parceiros incluídos</div>
+        <ul class="mb-list">
+          <li><strong>Total Mind</strong>: sessões de psicologia online com mais de 400 áudios de meditação</li>
+          <li><strong>Total Nutri</strong>: plano alimentar personalizado</li>
+          <li><strong>Conexa</strong>: telemedicina online</li>
+        </ul>
+        <div class="info">💡 O acesso aos apps parceiros varia conforme o plano escolhido.</div>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Portal de acesso</div>
+        <p class="mb-text"><a href="https://divulgacao-tp.glide.page/dl/a400f7" target="_blank">→ Acessar portal TotalPass</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- M8: OPEN ENGLISH -->
+<div class="modal" id="m8">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(96,165,250,.1)">🌎</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#93c5fd">Idiomas</div>
+        <div class="mh-title">Open English</div>
+        <div class="mh-partner">Inglês 24h com professores nativos</div>
+      </div>
+      <button class="modal-close" data-close="m8">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">O que inclui</div>
+        <ul class="mb-list">
+          <li>De <strong>60 a 80% de desconto</strong> nos cursos</li>
+          <li>Acesso ao curso <strong>24 horas por dia</strong></li>
+          <li>Professores nativos</li>
+          <li>Praticas interativas com conteúdo específico</li>
+          <li>Extensivo ao colaborador <strong>e dependentes</strong></li>
+        </ul>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Como contratar</div>
+        <p class="mb-text">Entre em contato com o RH para receber o link e o código de acesso com desconto: <a href="mailto:frademarh12@fradema.com.br">frademarh12@fradema.com.br</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- M9: SESC -->
+<div class="modal" id="m9">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(245,158,11,.1)">🏖️</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#fcd34d">Lazer e Cultura</div>
+        <div class="mh-title">SESC</div>
+        <div class="mh-partner">Serviço Social do Comércio</div>
+      </div>
+      <button class="modal-close" data-close="m9">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">O que oferece</div>
+        <p class="mb-text">Uma das maiores redes de bem-estar do Brasil, com acesso a serviços de <strong>educação, saúde, cultura, lazer e assistência</strong>.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Como se credenciar</div>
+        <p class="mb-text">Compareça pessoalmente ao <strong>SESC mais próximo</strong> portando os documentos abaixo:</p>
+        <ul class="mb-list">
+          <li>RG</li>
+          <li>CPF</li>
+          <li>Ultimo contracheque</li>
+        </ul>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Saiba mais</div>
+        <p class="mb-text"><a href="https://www.sesc.com.br/empresas/" target="_blank">→ sesc.com.br/empresas</a> — conheça todos os serviços disponíveis.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- M10: SULAMERICA -->
+<div class="modal" id="m10">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(239,68,68,.1)">❤️</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#fca5a5">Saúde</div>
+        <div class="mh-title">Plano de Saúde + Odonto + Seguro de Vida</div>
+        <div class="mh-partner">SulAmérica Saúde</div>
+      </div>
+      <button class="modal-close" data-close="m10">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-block">
+        <div class="mb-label">Plano de Saúde</div>
+        <p class="mb-text">SulAmérica Saúde com <strong>cobertura nacional</strong>. Consulte a apresentação completa do plano, tabela de carências e exemplos de coparticipação com o RH.</p>
+      </div>
+      <div class="mb-block">
+        <div class="mb-label">Tabela de Carência — Saude</div>
+        <table class="mb-table">
+          <tr><th>Procedimento</th><th>Carência</th></tr>
+          <tr><td>Urgência e emergência</td><td class="pct">24 horas</td></tr>
+          <tr><td>Consultas médicas, exames laboratoriais, ultrassonografia, terapias (fonoaudiologia, psicomotricidade, psicoterapia, nutrição etc.)</td><td class="pct">15 dias</td></tr>
+          <tr><td>Internações, cirurgias, tomografias, ressonância, cateterismo, quimioterapia, radioterapia e demais procedimentos cobertos</td><td class="pct">180 dias</td></tr>
+          <tr><td>Transplantes de órgãos e tecidos / OPME</td><td class="pct">180 dias</td></tr>
+          <tr><td>Internações psiquiátricas</td><td class="pct">180 dias</td></tr>
+          <tr><td>Parto a termo</td><td class="pct">300 dias</td></tr>
+        </table>
+      </div>
+      <hr class="mb-divider">
+      <div class="mb-block">
+        <div class="mb-label">Plano Odontológico</div>
+        <p class="mb-text">Incluído no pacote SulAmérica. Tabela de carências odontológicas:</p>
+        <table class="mb-table">
+          <tr><th>Grupo</th><th>Procedimento</th><th>Carência</th></tr>
+          <tr><td>0</td><td>Urgência e emergência</td><td class="pct">0 horas</td></tr>
+          <tr><td>1</td><td>Diagnóstico, radiologia, prevenção, periodontia, odontopediatria, DTM</td><td class="pct">30 dias</td></tr>
+          <tr><td>2</td><td>Endodontia e cirurgia</td><td class="pct">180 dias</td></tr>
+          <tr><td>3</td><td>Estética, ortodontia, prótese e implante</td><td class="pct">180 dias</td></tr>
+        </table>
+      </div>
+      <hr class="mb-divider">
+      <div class="mb-block">
+        <div class="mb-label">Seguro de Vida</div>
+        <p class="mb-text">Cobertura de seguro de vida inclusa no pacote. Para detalhes da apólice, solicite ao RH.</p>
+      </div>
+      <div class="info">💡 Para dúvidas sobre carências, coparticipações ou inclusão de dependentes, fale com o RH.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M11: UNIVERSIDADES -->
+<div class="modal" id="m11">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="mh-ico" style="background:rgba(139,92,246,.12)">🎓</div>
+      <div class="mh-meta">
+        <div class="mh-cat" style="color:#c4b5fd">Educação</div>
+        <div class="mh-title">Convênio com Universidades</div>
+        <div class="mh-partner">UNIP · FGV · PUC PR · Estácio · UVA</div>
+      </div>
+      <button class="modal-close" data-close="m11">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="alert" style="margin-bottom:1.2rem">✅ Todos os descontos se estendem aos dependentes do colaborador.</div>
+
+      <div class="mb-block">
+        <div class="mb-label">UNIP — 10% de desconto</div>
+        <p class="mb-text">Válido nas modalidades <strong>EAD, Flex e Presencial</strong>. Abrange Graduação (bacharelados, licenciaturas e tecnológicos, exceto Medicina, Medicina Veterinária e Odontologia) e <strong>Pós-Graduação Lato Sensu</strong>.</p>
+      </div>
+
+      <hr class="mb-divider">
+      <div class="mb-block">
+        <div class="mb-label">FGV — 10% nos cursos · 20% em livros</div>
+        <ul class="mb-list">
+          <li>Válido nas unidades de RJ (Botafogo e Barra), SP, Campinas, BH e DF</li>
+          <li>Abrange MBAs, pós-graduação e cursos de aperfeiçoamento e atualização (IDE/FGV Management)</li>
+          <li>20% de desconto na compra online de livros</li>
+          <li>Nao inclui: graduação, mestrado, doutorado e outras escolas</li>
+        </ul>
+        <p class="mb-text" style="margin-top:.6rem"><a href="https://educacao-executiva.fgv.br/rj/rio-de-janeiro" target="_blank">→ educacao-executiva.fgv.br</a></p>
+      </div>
+
+      <hr class="mb-divider">
+      <div class="mb-block">
+        <div class="mb-label">PUC PR — 10 a 25% de desconto</div>
+        <p class="mb-text">Desconto comercial disponibilizado pela PUCPR. Para consultar as regras completas do convênio, solicite o regulamento ao RH.</p>
+      </div>
+
+      <hr class="mb-divider">
+      <div class="mb-block">
+        <div class="mb-label">Estácio de Sá — Desconto por campanha</div>
+        <p class="mb-text">O desconto varia conforme a campanha vigente do mês. Entre em contato com a consultora para saber o desconto atual:</p>
+        <p class="mb-text" style="margin-top:.5rem"><strong>Evelyn</strong> · WhatsApp: <a href="https://wa.me/5521979150122" target="_blank">(21) 97915-0122</a></p>
+      </div>
+
+      <hr class="mb-divider">
+      <div class="mb-block">
+        <div class="mb-label">UVA — Universidade Veiga de Almeida — 10%</div>
+        <p class="mb-text">10% de desconto. O percentual pode variar conforme o mês vigente.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
 <script>
-// ── PARTICLES
+// PARTICLES
 (function(){
-  const c=document.getElementById('particles');
-  for(let i=0;i<22;i++){
-    const d=document.createElement('div');
-    const s=Math.random()*4+2;
+  var c=document.getElementById('pts');
+  for(var i=0;i<20;i++){
+    var d=document.createElement('div');
+    var s=Math.random()*4+2;
     d.className='pt';
-    d.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:rgba(37,99,235,${Math.random()*.3+.05});animation-duration:${Math.random()*18+10}s;animation-delay:${Math.random()*12}s;`;
+    d.style.cssText='width:'+s+'px;height:'+s+'px;left:'+Math.random()*100+'%;background:rgba(37,99,235,'+( Math.random()*.28+.04)+');animation-duration:'+(Math.random()*16+9)+'s;animation-delay:'+(Math.random()*14)+'s';
     c.appendChild(d);
   }
 })();
 
-// ── PROGRESS BAR
-window.addEventListener('scroll',()=>{
-  const h=document.documentElement;
-  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
-  document.getElementById('progress').style.width=pct+'%';
-  document.getElementById('btt').classList.toggle('show',h.scrollTop>400);
+// PROGRESS + BTT
+window.addEventListener('scroll',function(){
+  var h=document.documentElement;
+  document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  document.getElementById('btt').classList.toggle('show',h.scrollTop>380);
 });
 
-// ── COUNTER ANIMATION
-function animateCounter(el){
-  const target=parseInt(el.dataset.target,10);
-  let current=0;
-  const steps=60;
-  const increment=target/steps;
-  const timer=setInterval(()=>{
-    current+=increment;
-    if(current>=target){el.textContent=target;clearInterval(timer);}
-    else{el.textContent=Math.floor(current);}
-  },1000/steps);
+// COUNTERS
+function runCounter(el){
+  var target=parseInt(el.dataset.t,10),cur=0,inc=target/55;
+  var t=setInterval(function(){
+    cur+=inc;
+    if(cur>=target){el.textContent=target;clearInterval(t);}
+    else{el.textContent=Math.floor(cur);}
+  },16);
 }
-const counters=document.querySelectorAll('.counter');
-const cObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);cObs.unobserve(e.target);}});
-},{threshold:.3});
-counters.forEach(c=>cObs.observe(c));
+var cObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){runCounter(e.target);cObs.unobserve(e.target);}});
+},{threshold:.4});
+document.querySelectorAll('.ctr').forEach(function(el){cObs.observe(el);});
 
-// ── SCROLL REVEAL
-const rObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>rObs.observe(el));
+// REVEAL ON SCROLL
+var rObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on');});
+},{threshold:.07});
+document.querySelectorAll('.rev').forEach(function(el){rObs.observe(el);});
 
-// ── CARD EXPAND
-document.querySelectorAll('.card-expand-btn').forEach(function(btn){
+// MODALS
+function openModal(id){
+  document.getElementById(id).style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeModal(id){
+  document.getElementById(id).style.display='none';
+  document.body.style.overflow='';
+}
+
+// abrir via botão nos cards
+document.querySelectorAll('[data-modal]').forEach(function(btn){
   btn.addEventListener('click',function(){
-    var card=this.closest('.benefit-card');
-    var detail=card.querySelector('.card-detail');
-    var inner=detail.querySelector('.card-detail-inner');
-    var isOpen=this.classList.contains('open');
-    // fecha tudo
-    document.querySelectorAll('.card-expand-btn.open').forEach(function(b){
-      var d=b.closest('.benefit-card').querySelector('.card-detail');
-      d.style.maxHeight='0';
-      b.classList.remove('open');
+    openModal(this.dataset.modal);
+  });
+});
+
+// fechar via botão ✕
+document.querySelectorAll('[data-close]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    closeModal(this.dataset.close);
+  });
+});
+
+// fechar clicando no fundo escuro
+document.querySelectorAll('.modal-bg').forEach(function(bg){
+  bg.addEventListener('click',function(){
+    closeModal(this.closest('.modal').id);
+  });
+});
+
+// fechar com Escape
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    document.querySelectorAll('.modal').forEach(function(m){
+      if(m.style.display==='flex') closeModal(m.id);
     });
-    if(!isOpen){
-      detail.style.maxHeight=inner.scrollHeight+'px';
-      this.classList.add('open');
-      var self=this;
-      setTimeout(function(){self.scrollIntoView({behavior:'smooth',block:'nearest'});},200);
-    }
-  });
+  }
 });
 
-// ── SEARCH
-const searchInput=document.getElementById('search-input');
-const cards=document.querySelectorAll('.benefit-card');
-const noResults=document.getElementById('no-results');
-const noResultsTerm=document.getElementById('no-results-term');
-
-searchInput.addEventListener('input',function(){
-  const q=this.value.toLowerCase().trim();
-  let visible=0;
-  cards.forEach(card=>{
-    const text=(card.dataset.search||'')+(card.innerText||'');
-    const match=!q||text.toLowerCase().includes(q);
-    card.style.display=match?'':'none';
-    if(match)visible++;
+// SEARCH
+document.getElementById('srch').addEventListener('input',function(){
+  var q=this.value.toLowerCase().trim();
+  var cards=document.querySelectorAll('.bcard');
+  var visible=0;
+  cards.forEach(function(c){
+    var text=(c.dataset.s||'')+c.innerText.toLowerCase();
+    var show=!q||text.includes(q);
+    c.style.display=show?'':'none';
+    if(show)visible++;
   });
-  noResults.style.display=visible===0&&q?'block':'none';
-  noResultsTerm.textContent=q;
-});
-
-// ── NAV ACTIVE LINK
-const sections=['beneficios','saude','educacao','cta'];
-const navLinks=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let current='';
-  sections.forEach(id=>{
-    const el=document.getElementById(id);
-    if(el&&window.scrollY>=el.offsetTop-120)current=id;
-  });
-  navLinks.forEach(a=>{
-    a.classList.toggle('active',a.getAttribute('href')==='#'+current);
-  });
+  document.getElementById('no-res').style.display=(visible===0&&q)?'block':'none';
 });
 </script>
 </body>
