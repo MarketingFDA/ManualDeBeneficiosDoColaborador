@@ -9,21 +9,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#06101f;
-  --bg2:#0b1a35;
-  --bg3:#0f2147;
-  --card:#0d1d3e;
-  --card2:#132250;
-  --accent:#2563eb;
-  --accent2:#3b82f6;
-  --accent3:#60a5fa;
+  --bg:#06140d;
+  --bg2:#0a2417;
+  --bg3:#0e3322;
+  --card:#0c2c1a;
+  --card2:#163a22;
+  --accent:#15803d;
+  --accent2:#22c55e;
+  --accent3:#4ade80;
   --gold:#f59e0b;
   --green:#10b981;
   --text:#e2e8f0;
   --text2:#94a3b8;
   --text3:#64748b;
-  --border:rgba(37,99,235,.2);
-  --glow:rgba(37,99,235,.4);
+  --border:rgba(21,128,61,.2);
+  --glow:rgba(21,128,61,.4);
   --r:16px;
   --rs:10px;
 }
@@ -35,7 +35,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px;}
 
 /* PROGRESS */
-#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#2563eb,#60a5fa,#f59e0b);z-index:9999;}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#15803d,#4ade80,#f59e0b);z-index:9999;}
 
 /* PARTICLES */
 #pts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
@@ -47,35 +47,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(6,16,31,.93)
 .nav-logo{display:flex;align-items:center;gap:10px;}
 .logo-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
-.logo-text{font-size:1rem;font-weight:800;background:linear-gradient(135deg,#93c5fd,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo-text{font-size:1rem;font-weight:800;background:linear-gradient(135deg,#86efac,#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .nav-links{display:flex;gap:1.5rem;list-style:none;}
 .nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:.2s;padding:4px 0;border-bottom:2px solid transparent;}
 .nav-links a:hover{color:var(--accent3);border-bottom-color:var(--accent);}
-.nav-btn{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:700;text-decoration:none;transition:.2s;border:none;cursor:pointer;}
+.nav-btn{background:linear-gradient(135deg,#15803d,#14532d);color:#fff;padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:700;text-decoration:none;transition:.2s;border:none;cursor:pointer;}
 .nav-btn:hover{transform:translateY(-1px);box-shadow:0 4px 18px var(--glow);}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 18% 55%,rgba(37,99,235,.14),transparent 62%),radial-gradient(ellipse at 82% 22%,rgba(96,165,250,.09),transparent 55%),var(--bg);}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:58px 58px;}
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 18% 55%,rgba(21,128,61,.14),transparent 62%),radial-gradient(ellipse at 82% 22%,rgba(74,222,128,.09),transparent 55%),var(--bg);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(21,128,61,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(21,128,61,.04) 1px,transparent 1px);background-size:58px 58px;}
 .hero-inner{text-align:center;z-index:1;padding:2rem;max-width:820px;}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.13);border:1px solid rgba(37,99,235,.3);color:var(--accent3);padding:6px 18px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:1.8rem;animation:fadeD .7s ease both;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(21,128,61,.13);border:1px solid rgba(21,128,61,.3);color:var(--accent3);padding:6px 18px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:1.8rem;animation:fadeD .7s ease both;}
 .live{width:7px;height:7px;background:#10b981;border-radius:50%;animation:blink 1.5s infinite;}
 @keyframes fadeD{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 h1.htitle{font-size:clamp(2rem,5vw,3.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.1rem;animation:fadeU .8s .1s ease both;}
-h1.htitle em{font-style:normal;background:linear-gradient(135deg,#93c5fd,#3b82f6,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+h1.htitle em{font-style:normal;background:linear-gradient(135deg,#86efac,#22c55e,#bbf7d0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hsub{font-size:1rem;color:var(--text2);max-width:520px;margin:0 auto 2.2rem;line-height:1.75;font-weight:400;animation:fadeU .8s .2s ease both;}
 .hbtns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeU .8s .3s ease both;}
-.btn-main{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:13px 30px;border-radius:50px;font-weight:700;font-size:.9rem;text-decoration:none;border:none;cursor:pointer;transition:.2s;box-shadow:0 8px 28px rgba(37,99,235,.4);}
-.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,99,235,.5);}
+.btn-main{background:linear-gradient(135deg,#15803d,#14532d);color:#fff;padding:13px 30px;border-radius:50px;font-weight:700;font-size:.9rem;text-decoration:none;border:none;cursor:pointer;transition:.2s;box-shadow:0 8px 28px rgba(21,128,61,.4);}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(21,128,61,.5);}
 .btn-ghost{background:transparent;color:var(--accent3);padding:13px 30px;border-radius:50px;font-weight:700;font-size:.9rem;border:1px solid var(--border);text-decoration:none;transition:.2s;cursor:pointer;}
-.btn-ghost:hover{background:rgba(37,99,235,.09);border-color:var(--accent);}
+.btn-ghost:hover{background:rgba(21,128,61,.09);border-color:var(--accent);}
 
 /* HERO STATS */
 .hstats{display:flex;gap:3rem;justify-content:center;margin-top:3.5rem;animation:fadeU .8s .5s ease both;}
 .hstat{text-align:center;}
 .hstat-n{font-size:2.1rem;font-weight:900;color:#fff;line-height:1;}
-.hstat-n span{background:linear-gradient(135deg,#93c5fd,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hstat-n span{background:linear-gradient(135deg,#86efac,#bbf7d0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hstat-l{font-size:.73rem;color:var(--text3);margin-top:3px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;}
 .hdiv{width:1px;background:var(--border);}
 
@@ -83,14 +83,14 @@ h1.htitle em{font-style:normal;background:linear-gradient(135deg,#93c5fd,#3b82f6
 #search-wrap{position:relative;z-index:1;max-width:660px;margin:0 auto;padding:2.5rem 2rem 0;}
 .srch-box{position:relative;}
 #srch{width:100%;padding:15px 22px 15px 52px;background:var(--card);border:1px solid var(--border);border-radius:50px;color:var(--text);font-family:'Poppins',sans-serif;font-size:.95rem;outline:none;transition:.25s;}
-#srch:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.25);}
+#srch:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(21,128,61,.25);}
 #srch::placeholder{color:var(--text3);}
 .srch-ico{position:absolute;left:19px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.1rem;pointer-events:none;}
 
 /* SECTION */
 section{position:relative;z-index:1;}
 .section-wrap{max-width:1200px;margin:0 auto;padding:5rem 2rem;}
-.sec-tag{display:inline-block;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.22);color:var(--accent3);padding:3px 14px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.7rem;}
+.sec-tag{display:inline-block;background:rgba(21,128,61,.1);border:1px solid rgba(21,128,61,.22);color:var(--accent3);padding:3px 14px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.7rem;}
 .sec-title{font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:.5rem;}
 .sec-sub{color:var(--text2);font-size:.95rem;max-width:520px;margin:0 auto;line-height:1.65;}
 .sec-head{text-align:center;margin-bottom:3rem;}
@@ -107,7 +107,7 @@ section{position:relative;z-index:1;}
 
 /* BENEFIT CARD */
 .bcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;display:flex;flex-direction:column;}
-.bcard:hover{transform:translateY(-3px);border-color:rgba(37,99,235,.45);box-shadow:0 16px 50px rgba(0,0,0,.35);}
+.bcard:hover{transform:translateY(-3px);border-color:rgba(21,128,61,.45);box-shadow:0 16px 50px rgba(0,0,0,.35);}
 .bc-top{display:flex;align-items:flex-start;gap:1rem;padding:1.4rem 1.4rem .8rem;}
 .bc-ico{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
 .bc-meta{flex:1;}
@@ -118,7 +118,7 @@ section{position:relative;z-index:1;}
 .bc-sum{font-size:.86rem;color:var(--text2);line-height:1.65;margin-bottom:.9rem;}
 .bc-tags{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.9rem;}
 .tag{padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;}
-.tblue{background:rgba(37,99,235,.14);color:#93c5fd;border:1px solid rgba(37,99,235,.2);}
+.tblue{background:rgba(21,128,61,.14);color:#86efac;border:1px solid rgba(21,128,61,.2);}
 .tgreen{background:rgba(16,185,129,.12);color:#6ee7b7;border:1px solid rgba(16,185,129,.2);}
 .tgold{background:rgba(245,158,11,.12);color:#fcd34d;border:1px solid rgba(245,158,11,.2);}
 .tpurple{background:rgba(139,92,246,.12);color:#c4b5fd;border:1px solid rgba(139,92,246,.2);}
@@ -126,7 +126,7 @@ section{position:relative;z-index:1;}
 
 /* DETAIL BUTTON */
 .bc-btn{width:100%;background:none;border:none;border-top:1px solid var(--border);color:var(--accent3);font-family:'Poppins',sans-serif;font-size:.82rem;font-weight:600;padding:.85rem 1.4rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:background .2s;margin-top:auto;}
-.bc-btn:hover{background:rgba(37,99,235,.08);}
+.bc-btn:hover{background:rgba(21,128,61,.08);}
 .bc-btn .arrow{font-size:1.1rem;transition:transform .2s;}
 .bc-btn:hover .arrow{transform:scale(1.15);}
 
@@ -134,7 +134,7 @@ section{position:relative;z-index:1;}
 .modal{display:none;position:fixed;inset:0;z-index:500;align-items:center;justify-content:center;padding:1rem;}
 .modal.open{display:flex;}
 .modal-bg{position:absolute;inset:0;background:rgba(3,8,20,.82);backdrop-filter:blur(6px);}
-.modal-box{position:relative;z-index:1;background:var(--bg2);border:1px solid rgba(37,99,235,.25);border-radius:20px;width:100%;max-width:680px;max-height:88vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.6);animation:modalIn .22s ease;}
+.modal-box{position:relative;z-index:1;background:var(--bg2);border:1px solid rgba(21,128,61,.25);border-radius:20px;width:100%;max-width:680px;max-height:88vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.6);animation:modalIn .22s ease;}
 @keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 .modal-box::-webkit-scrollbar{width:4px;}
 .modal-box::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
@@ -159,9 +159,9 @@ section{position:relative;z-index:1;}
 .mb-list li::before{content:'›';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;}
 .mb-steps{list-style:none;counter-reset:s;}
 .mb-steps li{counter-increment:s;display:flex;gap:.8rem;margin-bottom:.6rem;font-size:.875rem;color:var(--text2);line-height:1.55;align-items:flex-start;}
-.mb-steps li::before{content:counter(s);min-width:22px;height:22px;background:rgba(37,99,235,.18);border:1px solid rgba(37,99,235,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--accent3);flex-shrink:0;}
+.mb-steps li::before{content:counter(s);min-width:22px;height:22px;background:rgba(21,128,61,.18);border:1px solid rgba(21,128,61,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--accent3);flex-shrink:0;}
 .alert{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);border-radius:var(--rs);padding:.75rem 1rem;font-size:.83rem;color:#fcd34d;display:flex;gap:.6rem;align-items:flex-start;margin-top:.7rem;}
-.info{background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.22);border-radius:var(--rs);padding:.75rem 1rem;font-size:.83rem;color:#93c5fd;display:flex;gap:.6rem;align-items:flex-start;margin-top:.7rem;}
+.info{background:rgba(21,128,61,.08);border:1px solid rgba(21,128,61,.22);border-radius:var(--rs);padding:.75rem 1rem;font-size:.83rem;color:#86efac;display:flex;gap:.6rem;align-items:flex-start;margin-top:.7rem;}
 .mb-table{width:100%;border-collapse:collapse;margin-top:.5rem;}
 .mb-table th{text-align:left;font-size:.69rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;padding:.5rem .75rem;border-bottom:1px solid var(--border);}
 .mb-table td{padding:.55rem .75rem;font-size:.83rem;color:var(--text2);border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;line-height:1.5;}
@@ -177,8 +177,8 @@ section{position:relative;z-index:1;}
 .cta-inner{text-align:center;padding:5rem 2rem;max-width:580px;margin:0 auto;}
 .cta-title{font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:.7rem;}
 .cta-sub{color:var(--text2);margin-bottom:1.8rem;line-height:1.7;font-size:.95rem;}
-.cta-mail{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);border-radius:50px;padding:.6rem 1.4rem;font-size:.88rem;color:var(--accent3);font-weight:600;text-decoration:none;transition:.2s;}
-.cta-mail:hover{background:rgba(37,99,235,.2);}
+.cta-mail{display:inline-flex;align-items:center;gap:.5rem;background:rgba(21,128,61,.12);border:1px solid rgba(21,128,61,.25);border-radius:50px;padding:.6rem 1.4rem;font-size:.88rem;color:var(--accent3);font-weight:600;text-decoration:none;transition:.2s;}
+.cta-mail:hover{background:rgba(21,128,61,.2);}
 
 /* FOOTER */
 footer{background:var(--bg);border-top:1px solid var(--border);padding:1.8rem;text-align:center;}
@@ -191,24 +191,24 @@ footer a{color:var(--accent3);text-decoration:none;}
 .d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;}
 
 /* BTT */
-#btt{position:fixed;bottom:1.8rem;right:1.8rem;width:44px;height:44px;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;border-radius:50%;color:#fff;font-size:1rem;cursor:pointer;z-index:99;opacity:0;transform:translateY(8px);transition:.3s;box-shadow:0 4px 18px rgba(37,99,235,.45);}
+#btt{position:fixed;bottom:1.8rem;right:1.8rem;width:44px;height:44px;background:linear-gradient(135deg,#15803d,#14532d);border:none;border-radius:50%;color:#fff;font-size:1rem;cursor:pointer;z-index:99;opacity:0;transform:translateY(8px);transition:.3s;box-shadow:0 4px 18px rgba(21,128,61,.45);}
 #btt.show{opacity:1;transform:translateY(0);}
-#btt:hover{box-shadow:0 8px 26px rgba(37,99,235,.55);}
+#btt:hover{box-shadow:0 8px 26px rgba(21,128,61,.55);}
 
 /* RH POPUP */
-.btn-3cx{display:block;text-align:center;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:13px 20px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;transition:.2s;box-shadow:0 4px 18px rgba(37,99,235,.4);margin-top:.3rem;}
-.btn-3cx:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(37,99,235,.55);}
+.btn-3cx{display:block;text-align:center;background:linear-gradient(135deg,#15803d,#14532d);color:#fff;padding:13px 20px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;transition:.2s;box-shadow:0 4px 18px rgba(21,128,61,.4);margin-top:.3rem;}
+.btn-3cx:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,128,61,.55);}
 .btn-onboarding{display:block;text-align:center;background:linear-gradient(135deg,#059669,#047857);color:#fff;padding:13px 20px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;transition:.2s;box-shadow:0 4px 18px rgba(5,150,105,.4);margin-top:.3rem;}
 .btn-onboarding:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(5,150,105,.55);}
 .rh-team{list-style:none;padding:0;margin:.2rem 0;}
-.rh-team li{display:flex;align-items:center;gap:.8rem;padding:.75rem 1rem;background:rgba(37,99,235,.07);border:1px solid rgba(37,99,235,.15);border-radius:10px;margin-bottom:.5rem;}
+.rh-team li{display:flex;align-items:center;gap:.8rem;padding:.75rem 1rem;background:rgba(21,128,61,.07);border:1px solid rgba(21,128,61,.15);border-radius:10px;margin-bottom:.5rem;}
 .rh-team li:last-child{margin-bottom:0;}
-.rh-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.rh-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#15803d,#14532d);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
 .rh-info{flex:1;}
 .rh-name{font-size:.88rem;font-weight:700;color:#fff;}
 .rh-ramal{font-size:.77rem;color:var(--accent3);margin-top:1px;}
 .rh-link-btn{background:none;border:none;color:var(--accent3);cursor:pointer;font-size:inherit;font-family:inherit;padding:0;text-decoration:underline;text-underline-offset:2px;}
-.rh-link-btn:hover{color:#93c5fd;}
+.rh-link-btn:hover{color:#86efac;}
 
 /* MOBILE */
 @media(max-width:768px){
@@ -253,7 +253,7 @@ footer a{color:var(--accent3);text-decoration:none;}
       <button class="btn-ghost" data-modal="mrh">Falar com o RH</button>
     </div>
     <div class="hstats">
-      <div class="hstat"><div class="hstat-n"><span class="ctr" data-t="13">0</span></div><div class="hstat-l">Benefícios ativos</div></div>
+      <div class="hstat"><div class="hstat-n"><span class="ctr" data-t="10">0</span></div><div class="hstat-l">Benefícios ativos</div></div>
       <div class="hdiv"></div>
       <div class="hstat"><div class="hstat-n"><span class="ctr" data-t="80">0</span><span style="color:#fff">%</span></div><div class="hstat-l">Desc. farmácias</div></div>
       <div class="hdiv"></div>
@@ -285,7 +285,7 @@ footer a{color:var(--accent3);text-decoration:none;}
   <div class="hl-strip rev">
     <div class="hl-item"><div class="hl-ico">🚌</div><div><div class="hl-label">Vale Transporte</div><div class="hl-val">Sem Parar Empresas</div></div></div>
     <div class="hl-item"><div class="hl-ico">🍽️</div><div><div class="hl-label">VA · VR</div><div class="hl-val">Swile Mastercard</div></div></div>
-    <div class="hl-item"><div class="hl-ico">❤️</div><div><div class="hl-label">Plano de Saúde</div><div class="hl-val">SulAmérica</div></div></div>
+    <div class="hl-item"><div class="hl-ico">🧠</div><div><div class="hl-label">Terapia Online</div><div class="hl-val">Virtude</div></div></div>
     <div class="hl-item"><div class="hl-ico">🎓</div><div><div class="hl-label">Educação</div><div class="hl-val">5 universidades</div></div></div>
     <div class="hl-item"><div class="hl-ico">🏋️</div><div><div class="hl-label">Bem-estar</div><div class="hl-val">TotalPass</div></div></div>
   </div>
@@ -295,9 +295,9 @@ footer a{color:var(--accent3);text-decoration:none;}
     <!-- 1 -->
     <div class="bcard rev" data-s="vale transporte sem parar onibus metro cartao recarga passagem">
       <div class="bc-top">
-        <div class="bc-ico" style="background:rgba(37,99,235,.15)">🚌</div>
+        <div class="bc-ico" style="background:rgba(21,128,61,.15)">🚌</div>
         <div class="bc-meta">
-          <div class="bc-cat" style="color:#60a5fa">Mobilidade</div>
+          <div class="bc-cat" style="color:#4ade80">Mobilidade</div>
           <div class="bc-title">Vale Transporte</div>
           <div class="bc-partner">Sem Parar Empresas</div>
         </div>
@@ -329,9 +329,9 @@ footer a{color:var(--accent3);text-decoration:none;}
     <!-- 3 - anchor saude -->
     <div class="bcard rev d2" id="saude-anchor" data-s="telemedicina mawdy medico consulta 24h online saude">
       <div class="bc-top">
-        <div class="bc-ico" style="background:rgba(96,165,250,.12)">⚕️</div>
+        <div class="bc-ico" style="background:rgba(74,222,128,.12)">⚕️</div>
         <div class="bc-meta">
-          <div class="bc-cat" style="color:#93c5fd">Saúde</div>
+          <div class="bc-cat" style="color:#86efac">Saúde</div>
           <div class="bc-title">Telemedicina 24h</div>
           <div class="bc-partner">Mawdy</div>
         </div>
@@ -414,9 +414,9 @@ footer a{color:var(--accent3);text-decoration:none;}
     <!-- 8 -->
     <div class="bcard rev d1" data-s="ingles open english idioma curso lingua professores">
       <div class="bc-top">
-        <div class="bc-ico" style="background:rgba(96,165,250,.1)">🌎</div>
+        <div class="bc-ico" style="background:rgba(74,222,128,.1)">🌎</div>
         <div class="bc-meta">
-          <div class="bc-cat" style="color:#93c5fd">Idiomas</div>
+          <div class="bc-cat" style="color:#86efac">Idiomas</div>
           <div class="bc-title">Open English</div>
           <div class="bc-partner">Inglês 24h com professores nativos</div>
         </div>
@@ -443,57 +443,6 @@ footer a{color:var(--accent3);text-decoration:none;}
         <div class="bc-tags"><span class="tag tgold">Educação</span><span class="tag tgreen">Saúde</span><span class="tag tpurple">Cultura</span><span class="tag tblue">Lazer</span></div>
       </div>
       <button class="bc-btn" data-modal="m9">Ver detalhes <span class="arrow">→</span></button>
-    </div>
-
-    <!-- 10 -->
-    <div class="bcard rev" data-s="sulamerica plano saude medico cobertura nacional">
-      <div class="bc-top">
-        <div class="bc-ico" style="background:rgba(239,68,68,.1)">❤️</div>
-        <div class="bc-meta">
-          <div class="bc-cat" style="color:#fca5a5">Saúde</div>
-          <div class="bc-title">Plano de Saúde</div>
-          <div class="bc-partner">SulAmérica Saúde</div>
-        </div>
-      </div>
-      <div class="bc-body">
-        <p class="bc-sum">Cobertura nacional com plano de saúde SulAmérica.</p>
-        <div class="bc-tags"><span class="tag tred">Cobertura nacional</span><span class="tag tblue">Saúde</span></div>
-      </div>
-      <button class="bc-btn" data-modal="m10">Ver detalhes <span class="arrow">→</span></button>
-    </div>
-
-    <!-- 12 -->
-    <div class="bcard rev" data-s="sulamerica plano odontologico odonto dente dentista cobertura nacional">
-      <div class="bc-top">
-        <div class="bc-ico" style="background:rgba(16,185,129,.12)">🦷</div>
-        <div class="bc-meta">
-          <div class="bc-cat" style="color:#6ee7b7">Odontológico</div>
-          <div class="bc-title">Plano Odontológico</div>
-          <div class="bc-partner">SulAmérica Odonto</div>
-        </div>
-      </div>
-      <div class="bc-body">
-        <p class="bc-sum">Plano odontológico SulAmérica incluso, com cobertura nacional para consultas e procedimentos.</p>
-        <div class="bc-tags"><span class="tag tgreen">Odonto</span><span class="tag tred">Cobertura nacional</span></div>
-      </div>
-      <button class="bc-btn" data-modal="m12">Ver detalhes <span class="arrow">→</span></button>
-    </div>
-
-    <!-- 13 -->
-    <div class="bcard rev" data-s="sulamerica seguro de vida apolice protecao financeira">
-      <div class="bc-top">
-        <div class="bc-ico" style="background:rgba(139,92,246,.12)">🛡️</div>
-        <div class="bc-meta">
-          <div class="bc-cat" style="color:#c4b5fd">Seguro de Vida</div>
-          <div class="bc-title">Seguro de Vida</div>
-          <div class="bc-partner">SulAmérica</div>
-        </div>
-      </div>
-      <div class="bc-body">
-        <p class="bc-sum">Cobertura de seguro de vida inclusa, garantindo proteção financeira para você e sua família.</p>
-        <div class="bc-tags"><span class="tag tpurple">Seguro de vida</span></div>
-      </div>
-      <button class="bc-btn" data-modal="m13">Ver detalhes <span class="arrow">→</span></button>
     </div>
 
     <!-- 11 -->
@@ -540,9 +489,9 @@ footer a{color:var(--accent3);text-decoration:none;}
   <div class="modal-bg"></div>
   <div class="modal-box">
     <div class="modal-head">
-      <div class="mh-ico" style="background:rgba(37,99,235,.15)">🚌</div>
+      <div class="mh-ico" style="background:rgba(21,128,61,.15)">🚌</div>
       <div class="mh-meta">
-        <div class="mh-cat" style="color:#60a5fa">Mobilidade</div>
+        <div class="mh-cat" style="color:#4ade80">Mobilidade</div>
         <div class="mh-title">Vale Transporte</div>
         <div class="mh-partner">Sem Parar Empresas</div>
       </div>
@@ -620,9 +569,9 @@ footer a{color:var(--accent3);text-decoration:none;}
   <div class="modal-bg"></div>
   <div class="modal-box">
     <div class="modal-head">
-      <div class="mh-ico" style="background:rgba(96,165,250,.12)">⚕️</div>
+      <div class="mh-ico" style="background:rgba(74,222,128,.12)">⚕️</div>
       <div class="mh-meta">
-        <div class="mh-cat" style="color:#93c5fd">Saúde</div>
+        <div class="mh-cat" style="color:#86efac">Saúde</div>
         <div class="mh-title">Telemedicina 24h</div>
         <div class="mh-partner">Mawdy</div>
       </div>
@@ -786,9 +735,9 @@ footer a{color:var(--accent3);text-decoration:none;}
   <div class="modal-bg"></div>
   <div class="modal-box">
     <div class="modal-head">
-      <div class="mh-ico" style="background:rgba(96,165,250,.1)">🌎</div>
+      <div class="mh-ico" style="background:rgba(74,222,128,.1)">🌎</div>
       <div class="mh-meta">
-        <div class="mh-cat" style="color:#93c5fd">Idiomas</div>
+        <div class="mh-cat" style="color:#86efac">Idiomas</div>
         <div class="mh-title">Open English</div>
         <div class="mh-partner">Inglês 24h com professores nativos</div>
       </div>
@@ -843,103 +792,6 @@ footer a{color:var(--accent3);text-decoration:none;}
       <div class="mb-block">
         <div class="mb-label">Saiba mais</div>
         <p class="mb-text"><a href="https://www.sesc.com.br/empresas/" target="_blank">→ sesc.com.br/empresas</a> — conheça todos os serviços disponíveis.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- M10: SULAMERICA SAUDE -->
-<div class="modal" id="m10">
-  <div class="modal-bg"></div>
-  <div class="modal-box">
-    <div class="modal-head">
-      <div class="mh-ico" style="background:rgba(239,68,68,.1)">❤️</div>
-      <div class="mh-meta">
-        <div class="mh-cat" style="color:#fca5a5">Saúde</div>
-        <div class="mh-title">Plano de Saúde</div>
-        <div class="mh-partner">SulAmérica Saúde</div>
-      </div>
-      <button class="modal-close" data-close="m10">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="mb-block">
-        <div class="mb-label">Plano de Saúde</div>
-        <p class="mb-text">SulAmérica Saúde com <strong>cobertura nacional</strong>. Consulte a apresentação completa do plano, tabela de carências e exemplos de coparticipação com o RH.</p>
-      </div>
-      <div class="mb-block">
-        <div class="mb-label">Tabela de Carência — Saude</div>
-        <table class="mb-table">
-          <tr><th>Procedimento</th><th>Carência</th></tr>
-          <tr><td>Urgência e emergência</td><td class="pct">24 horas</td></tr>
-          <tr><td>Consultas médicas, exames laboratoriais, ultrassonografia, terapias (fonoaudiologia, psicomotricidade, psicoterapia, nutrição etc.)</td><td class="pct">15 dias</td></tr>
-          <tr><td>Internações, cirurgias, tomografias, ressonância, cateterismo, quimioterapia, radioterapia e demais procedimentos cobertos</td><td class="pct">180 dias</td></tr>
-          <tr><td>Transplantes de órgãos e tecidos / OPME</td><td class="pct">180 dias</td></tr>
-          <tr><td>Internações psiquiátricas</td><td class="pct">180 dias</td></tr>
-          <tr><td>Parto a termo</td><td class="pct">300 dias</td></tr>
-        </table>
-      </div>
-      <div class="info">💡 Para dúvidas sobre carências, coparticipações ou inclusão de dependentes, fale com o RH.</div>
-      <div class="mb-block" style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.08)">
-        <a href="https://www.canva.com/design/DAGva03B7p0/I8T-kmdbYX8-MhNZn484Pw/edit" target="_blank" class="btn-onboarding">Apresentação do Plano de Saúde</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- M12: SULAMERICA ODONTO -->
-<div class="modal" id="m12">
-  <div class="modal-bg"></div>
-  <div class="modal-box">
-    <div class="modal-head">
-      <div class="mh-ico" style="background:rgba(16,185,129,.12)">🦷</div>
-      <div class="mh-meta">
-        <div class="mh-cat" style="color:#6ee7b7">Odontológico</div>
-        <div class="mh-title">Plano Odontológico</div>
-        <div class="mh-partner">SulAmérica Odonto</div>
-      </div>
-      <button class="modal-close" data-close="m12">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="mb-block">
-        <div class="mb-label">Plano Odontológico</div>
-        <p class="mb-text">Incluído no pacote SulAmérica, com <strong>cobertura nacional</strong>. Tabela de carências odontológicas:</p>
-        <table class="mb-table">
-          <tr><th>Grupo</th><th>Procedimento</th><th>Carência</th></tr>
-          <tr><td>0</td><td>Urgência e emergência</td><td class="pct">0 horas</td></tr>
-          <tr><td>1</td><td>Diagnóstico, radiologia, prevenção, periodontia, odontopediatria, DTM</td><td class="pct">30 dias</td></tr>
-          <tr><td>2</td><td>Endodontia e cirurgia</td><td class="pct">180 dias</td></tr>
-          <tr><td>3</td><td>Estética, ortodontia, prótese e implante</td><td class="pct">180 dias</td></tr>
-        </table>
-      </div>
-      <div class="info">💡 Para dúvidas sobre carências, coparticipações ou inclusão de dependentes, fale com o RH.</div>
-      <div class="mb-block" style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.08)">
-        <a href="https://canva.link/j2st5rz7f17u0e2" target="_blank" class="btn-onboarding">App SulAmérica Odonto</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- M13: SULAMERICA SEGURO DE VIDA -->
-<div class="modal" id="m13">
-  <div class="modal-bg"></div>
-  <div class="modal-box">
-    <div class="modal-head">
-      <div class="mh-ico" style="background:rgba(139,92,246,.12)">🛡️</div>
-      <div class="mh-meta">
-        <div class="mh-cat" style="color:#c4b5fd">Seguro de Vida</div>
-        <div class="mh-title">Seguro de Vida</div>
-        <div class="mh-partner">SulAmérica</div>
-      </div>
-      <button class="modal-close" data-close="m13">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="mb-block">
-        <div class="mb-label">Seguro de Vida</div>
-        <p class="mb-text">Cobertura de seguro de vida SulAmérica inclusa, garantindo <strong>proteção financeira</strong> para você e sua família. Para detalhes da apólice, consulte o manual ou fale com o RH.</p>
-      </div>
-      <div class="info">💡 Para dúvidas sobre carências, coparticipações ou inclusão de dependentes, fale com o RH.</div>
-      <div class="mb-block" style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.08)">
-        <a href="https://canva.link/zf9w01hohov4b5b" target="_blank" class="btn-onboarding">Manual Seguro de Vida</a>
       </div>
     </div>
   </div>
@@ -1005,9 +857,9 @@ footer a{color:var(--accent3);text-decoration:none;}
   <div class="modal-bg"></div>
   <div class="modal-box" style="max-width:460px">
     <div class="modal-head">
-      <div class="mh-ico" style="background:rgba(37,99,235,.15)">📞</div>
+      <div class="mh-ico" style="background:rgba(21,128,61,.15)">📞</div>
       <div class="mh-meta">
-        <div class="mh-cat" style="color:#60a5fa">Recursos Humanos</div>
+        <div class="mh-cat" style="color:#4ade80">Recursos Humanos</div>
         <div class="mh-title">Falar com o RH</div>
         <div class="mh-partner">Atendimento via ramal ou 3CX</div>
       </div>
@@ -1051,7 +903,7 @@ footer a{color:var(--accent3);text-decoration:none;}
     var d=document.createElement('div');
     var s=Math.random()*4+2;
     d.className='pt';
-    d.style.cssText='width:'+s+'px;height:'+s+'px;left:'+Math.random()*100+'%;background:rgba(37,99,235,'+( Math.random()*.28+.04)+');animation-duration:'+(Math.random()*16+9)+'s;animation-delay:'+(Math.random()*14)+'s';
+    d.style.cssText='width:'+s+'px;height:'+s+'px;left:'+Math.random()*100+'%;background:rgba(21,128,61,'+( Math.random()*.28+.04)+');animation-duration:'+(Math.random()*16+9)+'s;animation-delay:'+(Math.random()*14)+'s';
     c.appendChild(d);
   }
 })();
